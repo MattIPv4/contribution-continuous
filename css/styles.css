@@ -6,7 +6,6 @@ html, body {
 html {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%), url("hixs-evolution.png"), radial-gradient(ellipse at center, #243B55 0%, #000 100%);
   color: #ebebeb;
-  text-transform: uppercase;
   font-family: 'Ubuntu', sans-serif; }
 
 .container {
@@ -20,8 +19,14 @@ html {
     .container .row section {
       flex-grow: 1;
       align-self: center;
-      justify-self: center; }
+      justify-self: center;
+      margin: 1rem; }
       .container .row section h1 {
-        font-weight: normal; }
+        font-weight: normal;
+        text-transform: uppercase;
+        margin: 0 1rem 1rem; }
+
+.canvasjs-chart-credit {
+  display: none; }
 
 /*# sourceMappingURL=styles.css.map */
