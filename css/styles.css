@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+html, body {
+  margin: 0;
+  padding: 0; }
+
+html {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%), url("hixs-evolution.png"), radial-gradient(ellipse at center, #243B55 0%, #000 100%);
+  color: #ebebeb;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif; }
+
+.container {
+  display: flex;
+  flex-direction: column; }
+  .container .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1; }
+    .container .row section {
+      flex-grow: 1;
+      align-self: center;
+      justify-self: center; }
+      .container .row section h1 {
+        font-weight: normal; }
+
+/*# sourceMappingURL=styles.css.map */
