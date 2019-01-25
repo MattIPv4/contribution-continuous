@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function(){
     // save custom point (so can animate marker size)
     var point = [{x: 80, y: 124, markerSize: 80}]; // x: dia, y: sys
 
@@ -7,6 +7,8 @@ window.onload = function () {
         {
             theme: "dark2",
             backgroundColor: "transparent",
+            creditText: "",
+            creditHref: "",
             axisX: {
                 minimum: 40,
                 maximum: 100,
@@ -115,4 +117,4 @@ window.onload = function () {
         }
     }
     animate_point(12, 500);
-}
+});
