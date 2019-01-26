@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xobj.overrideMimeType("application/json");
         xobj.open('GET', 'report.json', true);
         xobj.onreadystatechange = function () {
-            if (xobj.readyState == 4 && xobj.status == "200") {
+            if (xobj.readyState === 4 && xobj.status === 200) {
                 callback(xobj.responseText);
             }
         };
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // save data
         var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        var reportData = {
+        window.reportData = {
             chartHeight: (h / 2) - (h * 0.1),
             colors: {
                 danger: "#ff7381",
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
             haemoglobin: parseFloat(data.haemoglobin) || 0,
             totalHDLRatio: parseFloat(data.totalHDLRatio) || 0,
         };
-        window.reportData = reportData;
 
         // trigger elements
         var event = new Event('jsonDataLoaded');
