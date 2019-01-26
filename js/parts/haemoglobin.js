@@ -40,25 +40,25 @@ document.addEventListener('jsonDataLoaded', function () {
                         {
                             y: data.severe / (data.normal / 0.75),
                             indexLabel: "Severe Anemia",
-                            color: "#ff7381",
+                            color: window.reportData.colors.danger,
                             toolTipContent: "0-" + data.severe.toString() + " g/L"
                         },
                         {
                             y: (data.moderate - data.severe) / (data.normal / 0.75),
                             indexLabel: "Moderate Anemia",
-                            color: "#fac1b6",
+                            color: window.reportData.colors.warning,
                             toolTipContent: data.severe.toString() + "-" + data.moderate.toString() + " g/L"
                         },
                         {
                             y: (data.mild - data.moderate) / (data.normal / 0.75),
                             indexLabel: "Mild Anemia",
-                            color: "#d6f5ff",
+                            color: window.reportData.colors.info,
                             toolTipContent: data.moderate.toString() + "-" + data.mild.toString() + " g/L"
                         },
                         {
                             y: (data.normal - data.mild) / (data.normal / 0.75),
                             indexLabel: "Normal Level",
-                            color: "#33ffd6",
+                            color: window.reportData.colors.success,
                             toolTipContent: data.mild.toString() + "-" + data.normal.toString() + " g/L"
                         },
                         {

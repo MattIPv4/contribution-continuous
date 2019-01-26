@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var reportData = {
             chartHeight: (h / 2) - (h * 0.1),
+            colors: {
+                danger: "#ff7381",
+                warning: "#fac1b6",
+                success: "#33ffd6",
+                info: "#d6f5ff"
+            },
 
             gender: data.gender.toString().toLowerCase() || "m",
             height: parseFloat(data.height) || 0,

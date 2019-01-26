@@ -32,7 +32,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 10,
-                        color: "#33ffd6",
+                        color: window.reportData.colors.success,
                         toolTipContent: "Normal: < 10%"
                     },
                     {
@@ -48,7 +48,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 60 - 10, // max - last
-                        color: "#ff7381",
+                        color: window.reportData.colors.danger,
                         toolTipContent: "Raised: > 10%"
                     },
                     {

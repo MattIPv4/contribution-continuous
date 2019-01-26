@@ -34,7 +34,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 3,
-                        color: "#ff7381",
+                        color: window.reportData.colors.danger,
                         toolTipContent: "Very Low: 0 - 3"
                     }
                 ]
@@ -45,7 +45,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 5 - 3,
-                        color: "#ff7381",
+                        color: window.reportData.colors.danger,
                         toolTipContent: "Low/Medium: 3 - 5"
                     }
                 ]
@@ -56,7 +56,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 7 - 5,
-                        color: "#fac1b6",
+                        color: window.reportData.colors.warning,
                         toolTipContent: "Medium: 5 - 7"
                     }
                 ]
@@ -67,7 +67,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 9 - 7,
-                        color: "#33ffd6",
+                        color: window.reportData.colors.success,
                         toolTipContent: "Medium/High: 7 - 9"
                     }
                 ]
@@ -78,7 +78,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 11 - 9,
-                        color: "#33ffd6",
+                        color: window.reportData.colors.success,
                         toolTipContent: "High: 9 - 11"
                     },
                     {
@@ -94,7 +94,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: 12 - 11,
-                        color: "#ff7381",
+                        color: window.reportData.colors.danger,
                         toolTipContent: "Very High: 11 - 12"
                     },
                     {

@@ -48,7 +48,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: data.optimal,
-                        color: "#33ffd6",
+                        color: window.reportData.colors.success,
                         toolTipContent: "Optimal: < " + data.optimal.toString()
                     },
                     {
@@ -64,7 +64,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: data.moderate - data.optimal,
-                        color: "#fac1b6",
+                        color: window.reportData.colors.warning,
                         toolTipContent: "Moderate: " + data.optimal.toString() + " - " + data.moderate.toString()
                     },
                     {
@@ -83,7 +83,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 dataPoints: [
                     {
                         y: data.high - data.moderate,
-                        color: "#ff7381",
+                        color: window.reportData.colors.danger,
                         toolTipContent: "High: > " + data.moderate.toString()
                     }
                 ]

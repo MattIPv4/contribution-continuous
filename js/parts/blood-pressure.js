@@ -1,8 +1,12 @@
 document.addEventListener('jsonDataLoaded', function () {
+    // user data
+    var dia = Math.max(Math.min(window.reportData.pressureDiastolic, 100), 40);
+    var sys = Math.max(Math.min(window.reportData.pressureSystolic, 190), 70);
+
     // save custom point (so can animate marker size)
     var point = [{
-        x: Math.max(Math.min(window.reportData.pressureDiastolic, 100), 40),
-        y: Math.max(Math.min(window.reportData.pressureSystolic, 190), 70),
+        x: dia,
+        y: sys,
         markerSize: 100
     }]; // x: dia, y: sys
 
@@ -39,7 +43,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     markerSize: 0,
                     highlightEnabled: false,
                     toolTipContent: null,
-                    color: "#d6f5ff",
+                    color: window.reportData.colors.info,
                     dataPoints: [
                         {x: 40, y: [70, 90]}, // y: [Low, High]
                         {x: 60, y: [70, 90]},
@@ -53,7 +57,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     markerSize: 0,
                     highlightEnabled: false,
                     toolTipContent: null,
-                    color: "#33ffd6",
+                    color: window.reportData.colors.success,
                     dataPoints: [
                         {x: 40, y: [90, 120]}, // y: [Low, High]
                         {x: 60, y: [90, 120]},
@@ -69,7 +73,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     markerSize: 0,
                     highlightEnabled: false,
                     toolTipContent: null,
-                    color: "#fac1b6",
+                    color: window.reportData.colors.warning,
                     dataPoints: [
                         {x: 40, y: [120, 140]}, // y: [Low, High]
                         {x: 80, y: [120, 140]},
@@ -85,7 +89,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     markerSize: 0,
                     highlightEnabled: false,
                     toolTipContent: null,
-                    color: "#ff7381",
+                    color: window.reportData.colors.danger,
                     dataPoints: [
                         {x: 40, y: [140, 190]}, // y: [Low, High]
                         {x: 90, y: [140, 190]},
@@ -95,11 +99,24 @@ document.addEventListener('jsonDataLoaded', function () {
                     ]
                 },
                 {
+                    // user data point larger
+                    type: "scatter",
+                    markerType: "circle",
+                    markerSize: 40,
+                    highlightEnabled: false,
+                    toolTipContent: null,
+                    color: "rgba(255, 255, 255, 0.3)",
+                    dataPoints: [{
+                        x: dia,
+                        y: sys
+                    }]
+                },
+                {
                     // user data point
                     type: "scatter",
                     markerType: "cross",
                     toolTipContent: "{y}/{x} mmHg",
-                    color: "#fff",
+                    color: "#1f1f2d",
                     dataPoints: point
                 }
             ]
@@ -127,5 +144,5 @@ document.addEventListener('jsonDataLoaded', function () {
         }
     }
 
-    animate_point(14, 500);
+    animate_point(12, 500);
 });

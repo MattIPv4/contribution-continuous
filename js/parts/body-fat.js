@@ -42,35 +42,35 @@ document.addEventListener('jsonDataLoaded', function () {
                         {
                             y: data.low,
                             indexLabel: "Low",
-                            color: "#fac1b6",
+                            color: window.reportData.colors.warning,
                             toolTipContent: "0-" + data.low.toString() + "%",
                             exploded: true
                         },
                         {
                             y: (data.ultra_lean - data.low),
                             indexLabel: "Ultra Lean",
-                            color: "#33ffd6",
+                            color: window.reportData.colors.success,
                             toolTipContent: data.low.toString() + "-" + data.ultra_lean.toString() + "%",
                             exploded: true
                         },
                         {
                             y: (data.lean - data.ultra_lean),
                             indexLabel: "Lean",
-                            color: "#33ffd6",
+                            color: window.reportData.colors.success,
                             toolTipContent: data.ultra_lean.toString() + "-" + data.lean.toString() + "%",
                             exploded: true
                         },
                         {
                             y: (data.moderate_lean - data.lean),
                             indexLabel: "Moderately Lean",
-                            color: "#33ffd6",
+                            color: window.reportData.colors.success,
                             toolTipContent: data.lean.toString() + "-" + data.moderate_lean.toString() + "%",
                             exploded: true
                         },
                         {
                             y: (data.excess - data.moderate_lean),
                             indexLabel: "Excess",
-                            color: "#ff7381",
+                            color: window.reportData.colors.danger,
                             toolTipContent: data.moderate_lean.toString() + "-" + data.excess.toString() + "%",
                             exploded: true
                         },
