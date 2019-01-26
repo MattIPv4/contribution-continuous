@@ -25,6 +25,8 @@ html {
         font-weight: normal;
         text-transform: uppercase;
         margin: 0 1rem 1rem; }
+      .container .row section h2 {
+        text-align: center; }
 
 .canvasjs-chart-credit {
   display: none; }
