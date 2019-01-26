@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('jsonDataLoaded', function () {
     // user value
     var user = 141;
-    var gender = "m";
+    var gender = window.reportData.gender;
 
     // save default values
     var data = {
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     type: "doughnut",
                     startAngle: -90,
+                    explodeOnClick: false,
                     dataPoints: [
                         {
                             y: data.severe / (data.normal / 0.75),
@@ -75,10 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // add user info
     var h2 = document.createElement("h2");
     h2.innerText = user.toString();
+    h2.style.fontSize = "2.2em";
     var br = document.createElement("br");
     h2.appendChild(br);
     var small = document.createElement("small");
     small.innerText = "g/L";
+    small.style.fontSize = "0.4em";
     h2.appendChild(small);
     document.getElementById(id).children[0].appendChild(h2);
 

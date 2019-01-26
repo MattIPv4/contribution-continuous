@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('jsonDataLoaded', function () {
     // save custom point (so can animate marker size)
-    var point = [{x: 80, y: 124, markerSize: 80}]; // x: dia, y: sys
+    var point = [{x: 80, y: 124, markerSize: 100}]; // x: dia, y: sys
 
     // generate chart
     var chart = new CanvasJS.Chart("blood-pressure-chart",
@@ -117,5 +117,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    animate_point(12, 500);
+    animate_point(14, 500);
 });

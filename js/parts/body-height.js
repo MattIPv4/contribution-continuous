@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('jsonDataLoaded', function () {
     // user value
     var user = 177;
-    var gender = "m";
+    var gender = window.reportData.gender;
 
     // create image
     var div = document.createElement("div");

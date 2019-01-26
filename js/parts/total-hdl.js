@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('jsonDataLoaded', function () {
     // user value
     var user = 3.7;
-    var gender = "m";
+    var gender = window.reportData.gender;
 
     // save default values
     var data = {
