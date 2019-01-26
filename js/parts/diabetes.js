@@ -36,7 +36,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         toolTipContent: "Normal: < 10%"
                     },
                     {
-                        y: user - 0.3,
+                        y: user - 0.3, // max / 100 / 2
                         color: "transparent",
                         highlightEnabled: false,
                         toolTipContent: null
@@ -47,12 +47,12 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedBar",
                 dataPoints: [
                     {
-                        y: 50,
+                        y: 60 - 10, // max - last
                         color: "#ff7381",
                         toolTipContent: "Raised: > 10%"
                     },
                     {
-                        y: 0.6,
+                        y: 0.6, // max / 100
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,

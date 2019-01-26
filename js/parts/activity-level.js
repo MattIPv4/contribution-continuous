@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = 7;
+    var user = Math.max(Math.min(7, 12), 0);
 
     // generate chart
     var id = "activity-level-chart";

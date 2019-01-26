@@ -1,6 +1,10 @@
 document.addEventListener('jsonDataLoaded', function () {
     // save custom point (so can animate marker size)
-    var point = [{x: 80, y: 124, markerSize: 100}]; // x: dia, y: sys
+    var point = [{
+        x: Math.max(Math.min(80, 100), 40),
+        y: Math.max(Math.min(124, 190), 70),
+        markerSize: 100
+    }]; // x: dia, y: sys
 
     // generate chart
     var id = "blood-pressure-chart";
