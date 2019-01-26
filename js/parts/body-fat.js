@@ -93,7 +93,7 @@ document.addEventListener('jsonDataLoaded', function () {
 
     // add user info
     var h2 = document.createElement("h2");
-    h2.innerText = user.toString() + "%";
+    h2.innerText = window.reportData.bodyFat.toString() + "%";
     h2.style.fontSize = "3em";
     h2.style.opacity = "0";
     h2.style.transition = "opacity 1000ms";

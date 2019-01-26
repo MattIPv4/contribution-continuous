@@ -18,9 +18,13 @@ document.addEventListener('jsonDataLoaded', function () {
             minimum: 0,
             maximum: 60,
             gridThickness: 1.5,
-            gridColor: "#434A54"
+            gridColor: "#434A54",
+            tickThickness: 1.5,
+            tickColor: "#434A54"
         },
         axisX: {
+            lineThickness: 1.5,
+            lineColor: "#434A54",
             tickThickness: 0,
             labelFormatter: function () {
                 return "";
@@ -56,7 +60,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
-                        indexLabel: user.toString() + "%",
+                        indexLabel: window.reportData.qDiabetes.toString() + "%",
                         indexLabelPlacement: "outside",
                         indexLabelFontSize: 30
                     }

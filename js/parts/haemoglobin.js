@@ -1,6 +1,5 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = window.reportData.haemoglobin; // no validation >.>
     var gender = window.reportData.gender;
 
     // save default values
@@ -18,9 +17,13 @@ document.addEventListener('jsonDataLoaded', function () {
             normal: 160
         }
     };
+    data = data[(gender.toString().toLowerCase() === "f" ? "female" : "male")];
+
+    // user value
+    var max = (data.normal / 0.75);
+    var user = Math.max(Math.min(window.reportData.haemoglobin, max), 0);
 
     // generate chart
-    data = data[(gender.toString().toLowerCase() === "f" ? "female" : "male")];
     var id = "haemoglobin-chart";
     var chart = new CanvasJS.Chart(id,
         {
@@ -38,31 +41,31 @@ document.addEventListener('jsonDataLoaded', function () {
                     explodeOnClick: false,
                     dataPoints: [
                         {
-                            y: data.severe / (data.normal / 0.75),
+                            y: data.severe / max,
                             indexLabel: "Severe Anemia",
                             color: window.reportData.colors.danger,
                             toolTipContent: "0-" + data.severe.toString() + " g/L"
                         },
                         {
-                            y: (data.moderate - data.severe) / (data.normal / 0.75),
+                            y: (data.moderate - data.severe) / max,
                             indexLabel: "Moderate Anemia",
                             color: window.reportData.colors.warning,
                             toolTipContent: data.severe.toString() + "-" + data.moderate.toString() + " g/L"
                         },
                         {
-                            y: (data.mild - data.moderate) / (data.normal / 0.75),
+                            y: (data.mild - data.moderate) / max,
                             indexLabel: "Mild Anemia",
                             color: window.reportData.colors.info,
                             toolTipContent: data.moderate.toString() + "-" + data.mild.toString() + " g/L"
                         },
                         {
-                            y: (data.normal - data.mild) / (data.normal / 0.75),
+                            y: (data.normal - data.mild) / max,
                             indexLabel: "Normal Level",
                             color: window.reportData.colors.success,
                             toolTipContent: data.mild.toString() + "-" + data.normal.toString() + " g/L"
                         },
                         {
-                            y: (data.normal / 0.75 * 0.25) / (data.normal / 0.75), // padding
+                            y: 0.25, // padding
                             color: "transparent",
                             toolTipContent: null,
                             highlightEnabled: false
@@ -80,7 +83,7 @@ document.addEventListener('jsonDataLoaded', function () {
 
     // add user info
     var h2 = document.createElement("h2");
-    h2.innerText = user.toString();
+    h2.innerText = window.reportData.haemoglobin.toString();
     h2.style.fontSize = "2.2em";
     var br = document.createElement("br");
     h2.appendChild(br);
@@ -117,13 +120,13 @@ document.addEventListener('jsonDataLoaded', function () {
                     radius: chart.data[0].innerRadius - 10,
                     dataPoints: [
                         {
-                            y: user / (data.normal / 0.75),
+                            y: user / max,
                             color: "#fff",
                             toolTipContent: null,
                             highlightEnabled: false
                         },
                         {
-                            y: ((data.normal / 0.75) - user) / (data.normal / 0.75), // padding
+                            y: (max - user) / max, // padding
                             color: "transparent",
                             toolTipContent: null,
                             highlightEnabled: false

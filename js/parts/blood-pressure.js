@@ -2,6 +2,7 @@ document.addEventListener('jsonDataLoaded', function () {
     // user data
     var dia = Math.max(Math.min(window.reportData.pressureDiastolic, 100), 40);
     var sys = Math.max(Math.min(window.reportData.pressureSystolic, 190), 70);
+    var label = window.reportData.pressureSystolic.toString() + "/" + window.reportData.pressureDiastolic.toString() + " mmHg";
 
     // save custom point (so can animate marker size)
     var point = [{
@@ -25,6 +26,10 @@ document.addEventListener('jsonDataLoaded', function () {
                 interval: 10,
                 gridThickness: 1.5,
                 gridColor: "#434A54",
+                tickThickness: 1.5,
+                tickColor: "#434A54",
+                lineThickness: 1.5,
+                lineColor: "#434A54",
                 title: "DIASTOLIC"
             },
             axisY: {
@@ -33,6 +38,10 @@ document.addEventListener('jsonDataLoaded', function () {
                 interval: 10,
                 gridThickness: 1.5,
                 gridColor: "#434A54",
+                tickThickness: 1.5,
+                tickColor: "#434A54",
+                lineThickness: 1.5,
+                lineColor: "#434A54",
                 title: "SYSTOLIC"
             },
             data: [
@@ -103,7 +112,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     type: "scatter",
                     markerType: "circle",
                     markerSize: 40,
-                    toolTipContent: "{y}/{x} mmHg",
+                    toolTipContent: label,
                     color: "rgba(255, 255, 255, 0.3)",
                     dataPoints: [{
                         x: dia,
@@ -114,7 +123,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     // user data point
                     type: "scatter",
                     markerType: "cross",
-                    toolTipContent: "{y}/{x} mmHg",
+                    toolTipContent: label,
                     color: "#1f1f2d",
                     dataPoints: point
                 }

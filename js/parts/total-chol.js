@@ -18,10 +18,12 @@ document.addEventListener('jsonDataLoaded', function () {
             minimum: 0,
             maximum: 10,
             gridThickness: 1.5,
-            gridColor: "#434A54"
+            gridColor: "transparent",
+            tickColor: "#434A54"
         },
         axisX: {
             tickThickness: 0,
+            lineColor: "transparent",
             labelFormatter: function () {
                 return "";
             }
@@ -66,7 +68,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
-                        indexLabel: user.toString() + " mmol/L",
+                        indexLabel: window.reportData.cholesterolTotal.toString() + " mmol/L",
                         indexLabelPlacement: "outside",
                         indexLabelFontSize: 15
                     }

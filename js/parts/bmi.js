@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = Math.max(Math.min(window.reportData.bmi, 60), 0);
+    var user = Math.max(Math.min(window.reportData.bmi, 50), 0);
 
     // generate chart
     var id = "bmi-chart";
@@ -19,9 +19,13 @@ document.addEventListener('jsonDataLoaded', function () {
             minimum: 0,
             maximum: 50,
             gridThickness: 1.5,
-            gridColor: "#434A54"
+            gridColor: "#434A54",
+            tickThickness: 1.5,
+            tickColor: "#434A54"
         },
         axisX: {
+            lineThickness: 1.5,
+            lineColor: "#434A54",
             tickThickness: 0,
             labelFormatter: function () {
                 return "";
@@ -99,7 +103,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
-                        indexLabel: user.toString(),
+                        indexLabel: window.reportData.bmi.toString(),
                         indexLabelPlacement: "outside",
                         indexLabelFontSize: 25
                     }

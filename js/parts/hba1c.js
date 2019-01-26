@@ -18,10 +18,12 @@ document.addEventListener('jsonDataLoaded', function () {
             minimum: 0,
             maximum: 120,
             gridThickness: 1.5,
-            gridColor: "#434A54"
+            gridColor: "transparent",
+            tickColor: "#434A54"
         },
         axisX: {
             tickThickness: 0,
+            lineColor: "transparent",
             labelFormatter: function () {
                 return "";
             }
@@ -76,7 +78,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
-                        indexLabel: user.toString() + " mmol/mol",
+                        indexLabel: window.reportData.HbA1C.toString() + " mmol/mol",
                         indexLabelPlacement: "outside",
                         indexLabelFontSize: 15
                     }

@@ -34,9 +34,13 @@ document.addEventListener('jsonDataLoaded', function () {
             minimum: 0,
             maximum: 10,
             gridThickness: 1.5,
-            gridColor: "#434A54"
+            gridColor: "#434A54",
+            tickThickness: 1.5,
+            tickColor: "#434A54"
         },
         axisX: {
+            lineThickness: 1.5,
+            lineColor: "#434A54",
             tickThickness: 0,
             labelFormatter: function () {
                 return "";
@@ -50,6 +54,16 @@ document.addEventListener('jsonDataLoaded', function () {
                         y: data.optimal,
                         color: window.reportData.colors.success,
                         toolTipContent: "Optimal: < " + data.optimal.toString()
+                    }
+                ]
+            },
+            {
+                type: "stackedBar",
+                dataPoints: [
+                    {
+                        y: data.moderate - data.optimal,
+                        color: window.reportData.colors.warning,
+                        toolTipContent: "Moderate: " + data.optimal.toString() + " - " + data.moderate.toString()
                     },
                     {
                         y: user - 0.05,
@@ -63,28 +77,18 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedBar",
                 dataPoints: [
                     {
-                        y: data.moderate - data.optimal,
-                        color: window.reportData.colors.warning,
-                        toolTipContent: "Moderate: " + data.optimal.toString() + " - " + data.moderate.toString()
+                        y: data.high - data.moderate,
+                        color: window.reportData.colors.danger,
+                        toolTipContent: "High: > " + data.moderate.toString()
                     },
                     {
                         y: 0.1,
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
-                        indexLabel: user.toString(),
+                        indexLabel: window.reportData.totalHDLRatio.toString(),
                         indexLabelPlacement: "outside",
                         indexLabelFontSize: 30
-                    }
-                ]
-            },
-            {
-                type: "stackedBar",
-                dataPoints: [
-                    {
-                        y: data.high - data.moderate,
-                        color: window.reportData.colors.danger,
-                        toolTipContent: "High: > " + data.moderate.toString()
                     }
                 ]
             }
