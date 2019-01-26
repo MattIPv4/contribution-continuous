@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     // user value
     var user = 141;
+    var gender = "m";
 
     // save default values
     var data = {
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function(){
             normal: 160
         }
     };
-    var gender = "f";
 
     // generate chart
     data = data[(gender.toString().toLowerCase() === "f" ? "female" : "male")];
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 {
                     type: "doughnut",
                     startAngle: -90,
-                    radius: chart.data[0].innerRadius,
+                    radius: chart.data[0].innerRadius - 10,
                     dataPoints: [
                         {
                             y: user / (data.normal / 0.75),
@@ -124,5 +124,5 @@ document.addEventListener('DOMContentLoaded', function(){
             ]
         }
     );
-    chart2.render();
+    setTimeout(function(){ chart2.render(); }, 500);
 });
