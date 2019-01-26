@@ -18,8 +18,8 @@ html {
     flex-grow: 1; }
     .container .row section {
       flex-grow: 1;
-      align-self: center;
-      justify-self: center;
+      align-self: flex-start;
+      justify-self: flex-start;
       margin: 1rem; }
       .container .row section h1 {
         font-weight: normal;

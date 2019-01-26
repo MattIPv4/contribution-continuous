@@ -24,8 +24,8 @@ html {
 
     section {
       flex-grow: 1;
-      align-self: center;
-      justify-self: center;
+      align-self: flex-start;
+      justify-self: flex-start;
       margin: 1rem;
 
       h1 {
