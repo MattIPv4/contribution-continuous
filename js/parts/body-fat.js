@@ -135,7 +135,6 @@ document.addEventListener('jsonDataLoaded', function () {
                     startAngle: -90,
                     radius: chart.data[0].radius - 2,
                     innerRadius: chart.data[0].innerRadius + 20,
-                    fillOpacity: 0.2,
                     dataPoints: [
                         {
                             y: data.excess,
@@ -145,7 +144,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         },
                         {
                             y: 100 - data.excess,
-                            color: "#fff",
+                            color: "rgba(255, 255, 255, 0.2)",
                             toolTipContent: null,
                             highlightEnabled: false
                         }
@@ -179,9 +178,10 @@ document.addEventListener('jsonDataLoaded', function () {
                     dataPoints: [
                         {
                             y: user - 0.5,
-                            color: "transparent",
+                            color: "rgba(255, 255, 255, 0.1)",
                             toolTipContent: null,
-                            highlightEnabled: false
+                            highlightEnabled: false,
+                            exploded: true
                         },
                         {
                             y: 1,
@@ -191,7 +191,14 @@ document.addEventListener('jsonDataLoaded', function () {
                             exploded: true
                         },
                         {
-                            y: 100 - user - 1,
+                            y: Math.max(data.excess - user - 1, 0),
+                            color: "rgba(255, 255, 255, 0.1)",
+                            toolTipContent: null,
+                            highlightEnabled: false,
+                            exploded: true
+                        },
+                        {
+                            y: 100 - (Math.max(data.excess - user - 1, 0) + 1 + (user - 0.5)),
                             color: "transparent",
                             toolTipContent: null,
                             highlightEnabled: false
@@ -201,7 +208,9 @@ document.addEventListener('jsonDataLoaded', function () {
             ]
         }
     );
-    chart3.render();
+    setTimeout(function () {
+        chart3.render();
+    }, 500);
 
 
 });

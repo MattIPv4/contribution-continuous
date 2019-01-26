@@ -91,7 +91,6 @@ document.addEventListener('jsonDataLoaded', function () {
             },
             {
                 type: "stackedColumn",
-                fillOpacity: 0.8,
                 dataPoints: [
                     {
                         y: 12 - 11,
