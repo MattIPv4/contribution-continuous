@@ -74,4 +74,12 @@ document.addEventListener('jsonDataLoaded', function () {
     document.getElementById(id).style.height = chart.height.toString() + "px";
     document.getElementById(id).style.width = chart.width.toString() + "px";
 
+    // do modal
+    var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
+    title.style.cursor = "pointer";
+    title.style.textDecoration = "underline dotted";
+    title.addEventListener("click", function() {
+        window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport);
+    });
+
 });

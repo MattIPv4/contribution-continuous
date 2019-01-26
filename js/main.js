@@ -1,5 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
+    window.doModal = function (title, content) {
+        var modal = document.createElement("div");
+        modal.addEventListener("click", function() {
+            modal.style.opacity = "0";
+            modal.style.pointerEvents = "none";
+            setTimeout(function() { modal.parentElement.removeChild(modal); }, 510);
+        });
+        modal.className = "modal";
+
+        var article = document.createElement("article");
+        var h1 = document.createElement("h1");
+        h1.innerText = title;
+        article.appendChild(h1);
+
+        if (content instanceof HTMLElement) {
+            article.appendChild(content);
+        } else {
+            var temp = document.createElement("p");
+            temp.innerHTML = content.replaceAll("\n", "<br/>");
+            article.appendChild(temp);
+        }
+
+        modal.appendChild(article);
+        document.body.appendChild(modal);
+        setTimeout(function() { modal.style.opacity = "1"; }, 10);
+    };
+
     function loadJSON(callback) {
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
@@ -39,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pressureSystolic: parseFloat(data.pressureSystolic) || 0,
             bodyFat: parseFloat(data.bodyFat) || 0,
             qDiabetes: parseFloat(data.qDiabetes) || 0,
+            qDiabetesReport: data.qDiabetesReport.toString(),
             HbA1C: parseFloat(data.HbA1C) || 0,
             haemoglobin: parseFloat(data.haemoglobin) || 0,
             cholesterolTotal: parseFloat(data.cholesterolTotal) || 0,
