@@ -9,6 +9,10 @@ html {
   color: #ebebeb;
   font-family: 'Ubuntu', sans-serif; }
 
+body {
+  opacity: 0;
+  transition: opacity 500ms; }
+
 .container {
   display: flex;
   flex-direction: column; }

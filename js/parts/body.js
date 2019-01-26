@@ -24,7 +24,7 @@ document.addEventListener('jsonDataLoaded', function () {
     top.style.height = "4px";
     top.style.background = "#fff";
     top.style.opacity = "0";
-    top.style.transition = "opacity 750ms";
+    top.style.transition = "opacity 1000ms";
     data_div.appendChild(top);
     var top_stem = document.createElement("div");
     top_stem.style.flexGrow = "1";
@@ -32,7 +32,7 @@ document.addEventListener('jsonDataLoaded', function () {
     top_stem.style.width = "4px";
     top_stem.style.background = "#fff";
     top_stem.style.opacity = "0";
-    top_stem.style.transition = "opacity 750ms";
+    top_stem.style.transition = "opacity 1000ms";
     data_div.appendChild(top_stem);
 
     // create data: data
@@ -40,7 +40,7 @@ document.addEventListener('jsonDataLoaded', function () {
     data.style.margin = "1rem 0";
     data.style.padding = "0";
     data.style.opacity = "0";
-    data.style.transition = "opacity 750ms";
+    data.style.transition = "opacity 1000ms";
     data.innerText = user_height.toString() + " cm";
     var br = document.createElement("br");
     data.appendChild(br);
@@ -56,13 +56,13 @@ document.addEventListener('jsonDataLoaded', function () {
     bottom_stem.style.width = "4px";
     bottom_stem.style.background = "#fff";
     bottom_stem.style.opacity = "0";
-    bottom_stem.style.transition = "opacity 750ms";
+    bottom_stem.style.transition = "opacity 1000ms";
     data_div.appendChild(bottom_stem);
     var bottom = document.createElement("div");
     bottom.style.height = "4px";
     bottom.style.background = "#fff";
     bottom.style.opacity = "0";
-    bottom.style.transition = "opacity 750ms";
+    bottom.style.transition = "opacity 1000ms";
     data_div.appendChild(bottom);
 
     // save to dom

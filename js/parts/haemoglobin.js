@@ -29,7 +29,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditText: "",
             creditHref: "",
             animationEnabled: true,
-            animationDuration: 750,
+            animationDuration: 1000,
             height: window.reportData.chartHeight,
             data: [
                 {
@@ -108,7 +108,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditText: "",
             creditHref: "",
             animationEnabled: true,
-            animationDuration: 750,
+            animationDuration: 1000,
             height: window.reportData.chartHeight,
             data: [
                 {

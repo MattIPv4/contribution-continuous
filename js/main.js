@@ -54,4 +54,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadJSON(process);
+    setTimeout(function(){ document.body.style.opacity = "1"; }, 100);
 });

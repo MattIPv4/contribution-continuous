@@ -10,7 +10,7 @@ document.addEventListener('jsonDataLoaded', function () {
         creditText: "",
         creditHref: "",
         animationEnabled: true,
-        animationDuration: 750,
+        animationDuration: 1000,
         height: window.reportData.chartHeight,
         width: 170,
         dataPointWidth: 80,

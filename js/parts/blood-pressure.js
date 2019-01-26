@@ -143,5 +143,5 @@ document.addEventListener('jsonDataLoaded', function () {
         }
     }
 
-    animate_point(12, 500);
+    animate_point(12, 750);
 });

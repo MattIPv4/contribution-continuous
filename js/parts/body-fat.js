@@ -31,7 +31,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditText: "",
             creditHref: "",
             animationEnabled: true,
-            animationDuration: 750,
+            animationDuration: 1000,
             height: window.reportData.chartHeight,
             data: [
                 {
@@ -96,7 +96,7 @@ document.addEventListener('jsonDataLoaded', function () {
     h2.innerText = user.toString() + "%";
     h2.style.fontSize = "3em";
     h2.style.opacity = "0";
-    h2.style.transition = "opacity 750ms";
+    h2.style.transition = "opacity 1000ms";
     var br = document.createElement("br");
     h2.appendChild(br);
     var small = document.createElement("small");
@@ -127,7 +127,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditText: "",
             creditHref: "",
             animationEnabled: true,
-            animationDuration: 750,
+            animationDuration: 1000,
             height: window.reportData.chartHeight,
             data: [
                 {
@@ -168,7 +168,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditText: "",
             creditHref: "",
             animationEnabled: true,
-            animationDuration: 750,
+            animationDuration: 1000,
             height: window.reportData.chartHeight,
             data: [
                 {
