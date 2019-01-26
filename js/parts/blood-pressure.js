@@ -103,8 +103,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     type: "scatter",
                     markerType: "circle",
                     markerSize: 40,
-                    highlightEnabled: false,
-                    toolTipContent: null,
+                    toolTipContent: "{y}/{x} mmHg",
                     color: "rgba(255, 255, 255, 0.3)",
                     dataPoints: [{
                         x: dia,
