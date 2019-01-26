@@ -96,7 +96,7 @@ document.addEventListener('jsonDataLoaded', function () {
     h2.innerText = window.reportData.bodyFat.toString() + "%";
     h2.style.fontSize = "3em";
     h2.style.opacity = "0";
-    h2.style.transition = "opacity 1000ms";
+    h2.style.transition = "opacity 500ms";
     var br = document.createElement("br");
     h2.appendChild(br);
     var small = document.createElement("small");
@@ -105,9 +105,6 @@ document.addEventListener('jsonDataLoaded', function () {
     small.style.textTransform = "uppercase";
     h2.appendChild(small);
     document.getElementById(id).children[0].appendChild(h2);
-    setTimeout(function () {
-        h2.style.opacity = "1";
-    }, 500);
 
     // position
     h2.style.position = "absolute";
@@ -208,9 +205,21 @@ document.addEventListener('jsonDataLoaded', function () {
             ]
         }
     );
-    setTimeout(function () {
-        chart3.render();
-    }, 500);
 
+    // click to show data
+    var doneShow = false;
+    var clickCapture = document.createElement("div");
+    clickCapture.style.position = "absolute";
+    clickCapture.style.height = chart.height.toString() + "px";
+    clickCapture.style.width = chart.width.toString() + "px";
+    clickCapture.style.cursor = "pointer";
+    clickCapture.addEventListener("click", function () {
+        if (doneShow) return;
+        doneShow = true;
+        chart3.render();
+        h2.style.opacity = "1";
+        clickCapture.parentElement.removeChild(clickCapture);
+    });
+    document.getElementById(id).appendChild(clickCapture);
 
 });

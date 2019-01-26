@@ -39,7 +39,8 @@ document.addEventListener('jsonDataLoaded', function () {
                         y: 18.5,
                         color: window.reportData.colors.info,
                         toolTipContent: "Underweight: &lt; 18.5 kg/m<sup>2</sup>"
-                    }
+                    },
+                    {y:0}
                 ]
             },
             {
@@ -81,7 +82,62 @@ document.addEventListener('jsonDataLoaded', function () {
                         y: 40 - 35,
                         color: window.reportData.colors.danger,
                         toolTipContent: "Obese II: 35 - 40 kg/m<sup>2</sup>"
-                    },
+                    }
+                ]
+            },
+            {
+                type: "stackedColumn",
+                dataPoints: [
+                    {
+                        y: 50 - 40,
+                        color: window.reportData.colors.danger,
+                        toolTipContent: "Obese III: &gt; 40 kg/m<sup>2</sup>"
+                    }
+                ]
+            }
+        ]
+    });
+    chart.render();
+
+    // deal with clearfix
+    document.getElementById(id).style.height = chart.height.toString() + "px";
+    document.getElementById(id).style.width = chart.width.toString() + "px";
+
+    // generate user chart
+    var div = document.createElement("div");
+    div.setAttribute("id", id + "-user");
+    div.style.pointerEvents = "none";
+    document.getElementById(id).appendChild(div);
+    var chart2 = new CanvasJS.Chart(id + "-user", {
+        theme: "dark2",
+        backgroundColor: "transparent",
+        creditText: "",
+        creditHref: "",
+        animationEnabled: true,
+        animationDuration: 1000,
+        height: window.reportData.chartHeight,
+        width: 170,
+        dataPointWidth: 80,
+        axisY: {
+            interval: 5,
+            minimum: 0,
+            maximum: 50,
+            gridThickness: 0,
+            tickThickness: 0
+        },
+        axisX: {
+            lineThickness: 0,
+            tickThickness: 0,
+            labelFormatter: function () {
+                return "";
+            }
+        },
+        data: [
+            {
+                type: "stackedColumn",
+                fillOpacity: 0.9,
+                dataPoints: [
+                    {y:0},
                     {
                         y: user - 0.375, // max / 100 * 1.5 / 2
                         color: "transparent",
@@ -93,11 +149,7 @@ document.addEventListener('jsonDataLoaded', function () {
             {
                 type: "stackedColumn",
                 dataPoints: [
-                    {
-                        y: 50 - 40,
-                        color: window.reportData.colors.danger,
-                        toolTipContent: "Obese III: &gt; 40 kg/m<sup>2</sup>"
-                    },
+                    {},
                     {
                         y: 0.75, // max / 100 * 1.5
                         color: "#fff",
@@ -111,10 +163,20 @@ document.addEventListener('jsonDataLoaded', function () {
             }
         ]
     });
-    chart.render();
 
-    // deal with clearfix
-    document.getElementById(id).style.height = chart.height.toString() + "px";
-    document.getElementById(id).style.width = chart.width.toString() + "px";
+    // click to show data
+    var doneShow = false;
+    var clickCapture = document.createElement("div");
+    clickCapture.style.position = "absolute";
+    clickCapture.style.height = chart.height.toString() + "px";
+    clickCapture.style.width = chart.width.toString() + "px";
+    clickCapture.style.cursor = "pointer";
+    clickCapture.addEventListener("click", function () {
+        if (doneShow) return;
+        doneShow = true;
+        chart2.render();
+        clickCapture.parentElement.removeChild(clickCapture);
+    });
+    document.getElementById(id).appendChild(clickCapture);
 
 });

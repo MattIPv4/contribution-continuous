@@ -23,7 +23,7 @@ document.addEventListener('jsonDataLoaded', function () {
     var top = document.createElement("div");
     top.style.height = "4px";
     top.style.background = "#fff";
-    top.style.opacity = "0";
+    top.style.opacity = "0.2";
     top.style.transition = "opacity 1000ms";
     data_div.appendChild(top);
     var top_stem = document.createElement("div");
@@ -61,7 +61,7 @@ document.addEventListener('jsonDataLoaded', function () {
     var bottom = document.createElement("div");
     bottom.style.height = "4px";
     bottom.style.background = "#fff";
-    bottom.style.opacity = "0";
+    bottom.style.opacity = "0.2";
     bottom.style.transition = "opacity 1000ms";
     data_div.appendChild(bottom);
 
@@ -69,17 +69,33 @@ document.addEventListener('jsonDataLoaded', function () {
     div.appendChild(data_div);
     document.getElementById("body").appendChild(div);
 
-    // animate
-    setTimeout(function () {
+    // click to show data
+    var doneShow = false;
+    var clickCapture = document.createElement("div");
+    clickCapture.style.position = "absolute";
+    clickCapture.style.top = "0";
+    clickCapture.style.left = "0";
+    clickCapture.style.height = div.offsetHeight.toString() + "px";
+    clickCapture.style.width = div.offsetWidth.toString() + "px";
+    clickCapture.style.cursor = "pointer";
+    clickCapture.addEventListener("click", function () {
+        if (doneShow) return;
+        doneShow = true;
+
+        // animate
         data.style.opacity = "1";
-    }, 100);
-    setTimeout(function () {
-        top_stem.style.opacity = "1";
-        bottom_stem.style.opacity = "1";
-    }, 400);
-    setTimeout(function () {
-        top.style.opacity = "1";
-        bottom.style.opacity = "1";
-    }, 700);
+        setTimeout(function () {
+            top_stem.style.opacity = "1";
+            bottom_stem.style.opacity = "1";
+        }, 300);
+        setTimeout(function () {
+            top.style.opacity = "1";
+            bottom.style.opacity = "1";
+        }, 600);
+
+        clickCapture.parentElement.removeChild(clickCapture);
+    });
+    document.getElementById("body").style.position = "relative";
+    document.getElementById("body").appendChild(clickCapture);
 
 });

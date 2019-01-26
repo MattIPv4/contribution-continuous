@@ -85,6 +85,8 @@ document.addEventListener('jsonDataLoaded', function () {
     var h2 = document.createElement("h2");
     h2.innerText = window.reportData.haemoglobin.toString();
     h2.style.fontSize = "2.2em";
+    h2.style.opacity = "0";
+    h2.style.transition = "opacity 500ms";
     var br = document.createElement("br");
     h2.appendChild(br);
     var small = document.createElement("small");
@@ -136,7 +138,20 @@ document.addEventListener('jsonDataLoaded', function () {
             ]
         }
     );
-    setTimeout(function () {
+
+    // click to show data
+    var doneShow = false;
+    var clickCapture = document.createElement("div");
+    clickCapture.style.position = "absolute";
+    clickCapture.style.height = chart.height.toString() + "px";
+    clickCapture.style.width = chart.width.toString() + "px";
+    clickCapture.style.cursor = "pointer";
+    clickCapture.addEventListener("click", function () {
+        if (doneShow) return;
+        doneShow = true;
         chart2.render();
-    }, 500);
+        h2.style.opacity = "1";
+        clickCapture.parentElement.removeChild(clickCapture);
+    });
+    document.getElementById(id).appendChild(clickCapture);
 });

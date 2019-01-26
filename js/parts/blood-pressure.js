@@ -4,11 +4,18 @@ document.addEventListener('jsonDataLoaded', function () {
     var sys = Math.max(Math.min(window.reportData.pressureSystolic, 190), 70);
     var label = window.reportData.pressureSystolic.toString() + "/" + window.reportData.pressureDiastolic.toString() + " mmHg";
 
-    // save custom point (so can animate marker size)
+    // save custom points (so can animate marker size)
     var point = [{
         x: dia,
         y: sys,
-        markerSize: 100
+        markerSize: 0,
+        markerColor: "transparent"
+    }]; // x: dia, y: sys
+    var pointLarge = [{
+        x: dia,
+        y: sys,
+        markerSize: 0,
+        markerColor: "transparent"
     }]; // x: dia, y: sys
 
     // generate chart
@@ -111,20 +118,14 @@ document.addEventListener('jsonDataLoaded', function () {
                     // user data point larger
                     type: "scatter",
                     markerType: "circle",
-                    markerSize: 40,
                     toolTipContent: label,
-                    color: "rgba(255, 255, 255, 0.3)",
-                    dataPoints: [{
-                        x: dia,
-                        y: sys
-                    }]
+                    dataPoints: pointLarge
                 },
                 {
                     // user data point
                     type: "scatter",
                     markerType: "cross",
                     toolTipContent: label,
-                    color: "#1f1f2d",
                     dataPoints: point
                 }
             ]
@@ -141,16 +142,34 @@ document.addEventListener('jsonDataLoaded', function () {
     document.getElementById(id).style.width = chart.width.toString() + "px";
 
     // animate point
-    function animate_point(target, time, step) {
+    function animate_point(point, target, time, step) {
         if (typeof step === "undefined") {
-            step = (target - point[0].markerSize) / (time / 20);
+            step = (target - point.markerSize) / (time / 20);
         }
-        point[0].markerSize = point[0].markerSize + step;
+        point.markerSize = point.markerSize + step;
         chart.render();
-        if ((point[0].markerSize < target && step >= 0) || (point[0].markerSize > target && step < 0)) {
-            setTimeout(animate_point, 20, target, time, step);
+        if ((point.markerSize < target && step >= 0) || (point.markerSize > target && step < 0)) {
+            setTimeout(animate_point, 20, point, target, time, step);
         }
     }
 
-    animate_point(12, 750);
+    // click to show data
+    var doneShow = false;
+    var clickCapture = document.createElement("div");
+    clickCapture.style.position = "absolute";
+    clickCapture.style.height = chart.height.toString() + "px";
+    clickCapture.style.width = chart.width.toString() + "px";
+    clickCapture.style.cursor = "pointer";
+    clickCapture.addEventListener("click", function () {
+        if (doneShow) return;
+        doneShow = true;
+        point[0].markerSize = 80;
+        point[0].markerColor = "#1f1f2d";
+        animate_point(point[0], 12, 750);
+        pointLarge[0].markerSize = 100;
+        pointLarge[0].markerColor = "rgba(255, 255, 255, 0.3)";
+        animate_point(pointLarge[0], 40, 750);
+        clickCapture.parentElement.removeChild(clickCapture);
+    });
+    document.getElementById(id).appendChild(clickCapture);
 });
