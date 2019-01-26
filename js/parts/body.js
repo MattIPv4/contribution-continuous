@@ -1,7 +1,7 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user_height = 177;
-    var user_weight = 76.5;
+    var user_height = window.reportData.height;
+    var user_weight = window.reportData.weight;
     var gender = window.reportData.gender;
 
     // create image
