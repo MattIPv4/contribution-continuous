@@ -21,7 +21,10 @@ html {
       flex-grow: 1;
       align-self: flex-start;
       justify-self: flex-start;
-      margin: 1rem; }
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
       .container .row section > [id$="-chart"] {
         content: "";
         clear: both;

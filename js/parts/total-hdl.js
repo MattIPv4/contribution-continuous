@@ -52,7 +52,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         toolTipContent: "Optimal: < " + data.optimal.toString()
                     },
                     {
-                        y: user,
+                        y: user - 0.05,
                         color: "transparent",
                         highlightEnabled: false,
                         toolTipContent: null

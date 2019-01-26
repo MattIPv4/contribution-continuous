@@ -28,6 +28,9 @@ html {
       align-self: flex-start;
       justify-self: flex-start;
       margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       > [id$="-chart"] {
         content: "";
