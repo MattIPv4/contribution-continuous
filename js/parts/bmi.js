@@ -38,7 +38,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 18.5,
                         color: window.reportData.colors.info,
-                        toolTipContent: "Underweight: < 18.5 kg/m2"
+                        toolTipContent: "Underweight: &lt; 18.5 kg/m<sup>2</sup>"
                     }
                 ]
             },
@@ -48,7 +48,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 25 - 18.5,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Normal: 18.5 - 25 kg/m2"
+                        toolTipContent: "Normal: 18.5 - 25 kg/m<sup>2</sup>"
                     }
                 ]
             },
@@ -58,7 +58,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 30 - 25,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "Overweight: 25 - 30 kg/m2"
+                        toolTipContent: "Overweight: 25 - 30 kg/m<sup>2</sup>"
                     }
                 ]
             },
@@ -69,7 +69,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 35 - 30,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Obese I: 30 - 35 kg/m2"
+                        toolTipContent: "Obese I: 30 - 35 kg/m<sup>2</sup>"
                     }
                 ]
             },
@@ -80,7 +80,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 40 - 35,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Obese II: 35 - 40 kg/m2"
+                        toolTipContent: "Obese II: 35 - 40 kg/m<sup>2</sup>"
                     },
                     {
                         y: user - 0.375, // max / 100 * 1.5 / 2
@@ -96,7 +96,7 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 50 - 40,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Obese III: > 40 kg/m2"
+                        toolTipContent: "Obese III: &gt; 40 kg/m<sup>2</sup>"
                     },
                     {
                         y: 0.75, // max / 100 * 1.5
