@@ -1,8 +1,8 @@
 document.addEventListener('jsonDataLoaded', function () {
     // save custom point (so can animate marker size)
     var point = [{
-        x: Math.max(Math.min(80, 100), 40),
-        y: Math.max(Math.min(124, 190), 70),
+        x: Math.max(Math.min(window.reportData.pressureDiastolic, 100), 40),
+        y: Math.max(Math.min(window.reportData.pressureSystolic, 190), 70),
         markerSize: 100
     }]; // x: dia, y: sys
 

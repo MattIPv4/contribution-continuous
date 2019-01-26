@@ -15,15 +15,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function process(data) {
         // parse data
         data = JSON.parse(data);
-        if (!data) { return; }
+        if (!data) {
+            return;
+        }
 
         // save data
         var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var reportData = {
             chartHeight: (h / 2) - (h * 0.1),
+
             gender: data.gender.toString().toLowerCase() || "m",
             height: parseFloat(data.height) || 0,
-            weight: parseFloat(data.weight)
+            weight: parseFloat(data.weight) || 0,
+            activityLevel: parseFloat(data.activityLevel) || 0,
+            pressureDiastolic: parseFloat(data.pressureDiastolic) || 0,
+            pressureSystolic: parseFloat(data.pressureSystolic) || 0,
+            bodyFat: parseFloat(data.bodyFat) || 0,
+            qDiabetes: parseFloat(data.qDiabetes) || 0,
+            haemoglobin: parseFloat(data.haemoglobin) || 0,
+            totalHDLRatio: parseFloat(data.totalHDLRatio) || 0,
         };
         window.reportData = reportData;
 

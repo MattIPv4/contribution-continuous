@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = 141; // no validation >.>
+    var user = window.reportData.haemoglobin; // no validation >.>
     var gender = window.reportData.gender;
 
     // save default values

@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = Math.max(Math.min(3.7, 10), 0);
+    var user = Math.max(Math.min(window.reportData.totalHDLRatio, 10), 0);
     var gender = window.reportData.gender;
 
     // save default values

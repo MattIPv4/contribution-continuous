@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = Math.max(Math.min(1.7, 60), 0);
+    var user = Math.max(Math.min(window.reportData.qDiabetes, 60), 0);
 
     // generate chart
     var id = "diabetes-chart";
