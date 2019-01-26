@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     // user value
     var user = 177;
     var gender = "m";
@@ -62,8 +62,16 @@ document.addEventListener('DOMContentLoaded', function(){
     // save to dom
     div.appendChild(data_div);
     document.getElementById("body-height").appendChild(div);
-    setTimeout(function(){ data.style.opacity = "1"; }, 100);
-    setTimeout(function(){ top_stem.style.opacity = "1"; bottom_stem.style.opacity = "1"; }, 400);
-    setTimeout(function(){ top.style.opacity = "1"; bottom.style.opacity = "1"; }, 700);
+    setTimeout(function () {
+        data.style.opacity = "1";
+    }, 100);
+    setTimeout(function () {
+        top_stem.style.opacity = "1";
+        bottom_stem.style.opacity = "1";
+    }, 400);
+    setTimeout(function () {
+        top.style.opacity = "1";
+        bottom.style.opacity = "1";
+    }, 700);
 
 });

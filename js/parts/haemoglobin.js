@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     // user value
     var user = 141;
     var gender = "m";
@@ -124,5 +124,7 @@ document.addEventListener('DOMContentLoaded', function(){
             ]
         }
     );
-    setTimeout(function(){ chart2.render(); }, 500);
+    setTimeout(function () {
+        chart2.render();
+    }, 500);
 });

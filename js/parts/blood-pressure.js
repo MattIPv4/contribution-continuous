@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     // save custom point (so can animate marker size)
     var point = [{x: 80, y: 124, markerSize: 80}]; // x: dia, y: sys
 
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     toolTipContent: null,
                     color: "#d6f5ff",
                     dataPoints: [
-                        { x: 40, y: [70, 90] }, // y: [Low, High]
-                        { x: 60, y: [70, 90] },
-                        { x: 60, y: [70, 70] }
+                        {x: 40, y: [70, 90]}, // y: [Low, High]
+                        {x: 60, y: [70, 90]},
+                        {x: 60, y: [70, 70]}
                     ]
                 },
                 {
@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     toolTipContent: null,
                     color: "#33ffd6",
                     dataPoints: [
-                        { x: 40, y: [90, 120] }, // y: [Low, High]
-                        { x: 60, y: [90, 120] },
-                        { x: 60, y: [70, 120] },
-                        { x: 80, y: [70, 120] },
-                        { x: 80, y: [70, 70] }
+                        {x: 40, y: [90, 120]}, // y: [Low, High]
+                        {x: 60, y: [90, 120]},
+                        {x: 60, y: [70, 120]},
+                        {x: 80, y: [70, 120]},
+                        {x: 80, y: [70, 70]}
                     ]
                 },
                 {
@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     toolTipContent: null,
                     color: "#fac1b6",
                     dataPoints: [
-                        { x: 40, y: [120, 140] }, // y: [Low, High]
-                        { x: 80, y: [120, 140] },
-                        { x: 80, y: [70, 140] },
-                        { x: 90, y: [70, 140] },
-                        { x: 90, y: [70, 70] }
+                        {x: 40, y: [120, 140]}, // y: [Low, High]
+                        {x: 80, y: [120, 140]},
+                        {x: 80, y: [70, 140]},
+                        {x: 90, y: [70, 140]},
+                        {x: 90, y: [70, 70]}
                     ]
                 },
                 {
@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     toolTipContent: null,
                     color: "#ff7381",
                     dataPoints: [
-                        { x: 40, y: [140, 190] }, // y: [Low, High]
-                        { x: 90, y: [140, 190] },
-                        { x: 90, y: [70, 190] },
-                        { x: 100, y: [70, 190] },
-                        { x: 100, y: [70, 70] }
+                        {x: 40, y: [140, 190]}, // y: [Low, High]
+                        {x: 90, y: [140, 190]},
+                        {x: 90, y: [70, 190]},
+                        {x: 100, y: [70, 190]},
+                        {x: 100, y: [70, 70]}
                     ]
                 },
                 {
@@ -116,5 +116,6 @@ document.addEventListener('DOMContentLoaded', function(){
             setTimeout(animate_point, 20, target, time, step);
         }
     }
+
     animate_point(12, 500);
 });
