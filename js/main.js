@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // save data
         var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         window.reportData = {
-            chartHeight: (h / 2) - (h * 0.1),
+            chartHeight: (h / 2) - (h * 0.15),
             colors: {
                 danger: "#ff7381",
                 warning: "#fac1b6",
