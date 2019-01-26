@@ -17,7 +17,7 @@ document.addEventListener('jsonDataLoaded', function () {
     var data_div = document.createElement("div");
     data_div.style.display = "flex";
     data_div.style.flexDirection = "column";
-    data_div.style.marginLeft = "1rem";
+    data_div.style.margin = "0 1.5rem";
 
     // create data: top bar
     var top = document.createElement("div");

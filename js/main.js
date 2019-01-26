@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             gender: data.gender.toString().toLowerCase() || "m",
             height: parseFloat(data.height) || 0,
             weight: parseFloat(data.weight) || 0,
+            bmi: parseFloat(data.bmi) || 0,
             activityLevel: parseFloat(data.activityLevel) || 0,
             pressureDiastolic: parseFloat(data.pressureDiastolic) || 0,
             pressureSystolic: parseFloat(data.pressureSystolic) || 0,
