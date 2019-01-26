@@ -6,44 +6,96 @@
 <body>
 <div class="container">
     <div class="row">
-        <section>
-            <h1>Blood Pressure</h1>
-            <div id="blood-pressure-chart"></div>
-            <script src="js/parts/blood-pressure.js"></script>
-        </section>
-        <section>
-            <h1>Haemoglobin Level</h1>
-            <div id="haemoglobin-chart"></div>
-            <script src="js/parts/haemoglobin.js"></script>
-        </section>
-        <section>
-            <h1>Total Cholesterol/HDL</h1>
-            <div id="total-hdl-chart"></div>
-            <script src="js/parts/total-hdl.js"></script>
+        <div class="column">
+            <div class="row">
+                <section>
+                    <h1>Haemoglobin Level</h1>
+                    <div id="haemoglobin-chart"></div>
+                    <script src="js/parts/haemoglobin.js"></script>
+                </section>
 
-            <h1>Diabetes Risk</h1>
-            <div id="diabetes-chart"></div>
-            <script src="js/parts/diabetes.js"></script>
-        </section>
-    </div>
-    <div class="row">
-        <section>
-            <h1>Body Data</h1>
-            <div id="body"></div>
-            <script src="js/parts/body.js"></script>
-        </section>
-        <section>
-            <h1>Activity Level</h1>
-            <div id="activity-level-chart"></div>
-            <script src="js/parts/activity-level.js"></script>
-        </section>
-        <section>
-            <h1>Body Fat</h1>
-            <div id="body-fat-chart"></div>
-            <script src="js/parts/body-fat.js"></script>
-        </section>
+                <section>
+                    <h1>Activity Level</h1>
+                    <div id="activity-level-chart"></div>
+                    <script src="js/parts/activity-level.js"></script>
+                </section>
+
+                <section>
+                    <h1>Body Fat</h1>
+                    <div id="body-fat-chart"></div>
+                    <script src="js/parts/body-fat.js"></script>
+                </section>
+            </div>
+            <div class="row">
+                <section>
+                    <h1>Body Data</h1>
+                    <div id="body"></div>
+                    <script src="js/parts/body.js"></script>
+                </section>
+
+                <section>
+                    <h1>Blood Pressure</h1>
+                    <div id="blood-pressure-chart"></div>
+                    <script src="js/parts/blood-pressure.js"></script>
+                </section>
+            </div>
+        </div>
+        <div class="column">
+            <section>
+                <h1>Total Cholesterol/HDL</h1>
+                <div id="total-hdl-chart"></div>
+                <script src="js/parts/total-hdl.js"></script>
+
+                <section style="align-self:flex-end">
+                    <div class="row">
+                        <h3>Total Cholesterol</h3>
+                        <div id="total-chol-chart"></div>
+                    </div>
+                    <script src="js/parts/total-chol.js"></script>
+                </section>
+
+                <section style="align-self:flex-end">
+                    <div class="row">
+                        <h3>LDL Cholesterol</h3>
+                        <div id="ldl-chol-chart"></div>
+                    </div>
+                    <script src="js/parts/ldl-chol.js"></script>
+                </section>
+
+                <section style="align-self:flex-end">
+                    <div class="row">
+                        <h3>HDL Cholesterol</h3>
+                        <div id="hdl-chol-chart"></div>
+                    </div>
+                    <script src="js/parts/hdl-chol.js"></script>
+                </section>
+
+                <section style="align-self:flex-end">
+                    <div class="row">
+                        <h3>Triglycerides</h3>
+                        <div id="triglycerides-chart"></div>
+                    </div>
+                    <script src="js/parts/triglycerides.js"></script>
+                </section>
+            </section>
+
+            <section>
+                <h1>Diabetes Risk</h1>
+                <div id="diabetes-chart"></div>
+                <script src="js/parts/diabetes.js"></script>
+
+                <section style="align-self:flex-end">
+                    <div class="row">
+                        <h3>HbA1C</h3>
+                        <div id="hba1c-chart"></div>
+                    </div>
+                    <script src="js/parts/hba1c.js"></script>
+                </section>
+            </section>
+        </div>
     </div>
 </div>
+<img src="assets/bupa.svg" class="brand" alt=""/>
 <script src="js/canvasjs-2.3/canvasjs.min.js" type="text/javascript"></script>
 <script src="js/main.js"></script>
 </body>
