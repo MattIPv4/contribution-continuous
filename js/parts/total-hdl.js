@@ -19,7 +19,8 @@ document.addEventListener('jsonDataLoaded', function () {
 
     // generate chart
     data = data[(gender.toString().toLowerCase() === "f" ? "female" : "male")];
-    var chart = new CanvasJS.Chart("total-hdl-chart", {
+    var id = "total-hdl-chart";
+    var chart = new CanvasJS.Chart(id, {
         theme: "dark2",
         backgroundColor: "transparent",
         creditText: "",
@@ -90,5 +91,9 @@ document.addEventListener('jsonDataLoaded', function () {
         ]
     });
     chart.render();
+
+    // deal with clearfix
+    document.getElementById(id).style.height = chart.height.toString() + "px";
+    document.getElementById(id).style.width = chart.width.toString() + "px";
 
 });

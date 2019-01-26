@@ -1,6 +1,7 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = 177;
+    var user_height = 177;
+    var user_weight = 76.5;
     var gender = window.reportData.gender;
 
     // create image
@@ -9,7 +10,7 @@ document.addEventListener('jsonDataLoaded', function () {
     div.style.flexDirection = "row";
     var img = document.createElement("img");
     img.src = "assets/" + (gender.toString().toLowerCase() === "f" ? "female" : "male") + ".png";
-    img.style.height = "400px";
+    img.style.height = window.reportData.chartHeight.toString() + "px";
     div.appendChild(img);
 
     // create data
@@ -38,9 +39,14 @@ document.addEventListener('jsonDataLoaded', function () {
     var data = document.createElement("h2");
     data.style.margin = "1rem 0";
     data.style.padding = "0";
-    data.innerText = user.toString() + " cm";
     data.style.opacity = "0";
     data.style.transition = "opacity 750ms";
+    data.innerText = user_height.toString() + " cm";
+    var br = document.createElement("br");
+    data.appendChild(br);
+    var sub_data = document.createElement("small");
+    sub_data.innerText = user_weight.toString() + " kg";
+    data.appendChild(sub_data);
     data_div.appendChild(data);
 
     // create data: bottom bar
@@ -61,7 +67,9 @@ document.addEventListener('jsonDataLoaded', function () {
 
     // save to dom
     div.appendChild(data_div);
-    document.getElementById("body-height").appendChild(div);
+    document.getElementById("body").appendChild(div);
+
+    // animate
     setTimeout(function () {
         data.style.opacity = "1";
     }, 100);

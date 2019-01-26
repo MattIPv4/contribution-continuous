@@ -3,12 +3,14 @@ document.addEventListener('jsonDataLoaded', function () {
     var point = [{x: 80, y: 124, markerSize: 100}]; // x: dia, y: sys
 
     // generate chart
-    var chart = new CanvasJS.Chart("blood-pressure-chart",
+    var id = "blood-pressure-chart";
+    var chart = new CanvasJS.Chart(id,
         {
             theme: "dark2",
             backgroundColor: "transparent",
             creditText: "",
             creditHref: "",
+            height: window.reportData.chartHeight,
             axisX: {
                 minimum: 40,
                 maximum: 100,
@@ -104,6 +106,10 @@ document.addEventListener('jsonDataLoaded', function () {
     // maintain aspect based on height and scales (ish)
     var unit_size = chart.height / chart.get("axisY")[0].range;
     chart.set("width", parseInt(unit_size * chart.get("axisX")[0].range * 1.3)); // * 1.3 to make fatter
+
+    // deal with clearfix
+    document.getElementById(id).style.height = chart.height.toString() + "px";
+    document.getElementById(id).style.width = chart.width.toString() + "px";
 
     // animate point
     function animate_point(target, time, step) {

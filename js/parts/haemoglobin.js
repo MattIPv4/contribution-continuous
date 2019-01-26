@@ -30,6 +30,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditHref: "",
             animationEnabled: true,
             animationDuration: 750,
+            height: window.reportData.chartHeight,
             data: [
                 {
                     type: "doughnut",
@@ -73,6 +74,10 @@ document.addEventListener('jsonDataLoaded', function () {
     );
     chart.render();
 
+    // deal with clearfix
+    document.getElementById(id).style.height = chart.height.toString() + "px";
+    document.getElementById(id).style.width = chart.width.toString() + "px";
+
     // add user info
     var h2 = document.createElement("h2");
     h2.innerText = user.toString();
@@ -104,6 +109,7 @@ document.addEventListener('jsonDataLoaded', function () {
             creditHref: "",
             animationEnabled: true,
             animationDuration: 750,
+            height: window.reportData.chartHeight,
             data: [
                 {
                     type: "doughnut",

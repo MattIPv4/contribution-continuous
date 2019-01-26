@@ -6,8 +6,9 @@ html, body {
 }
 
 html {
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%),
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%),
   url("hixs-evolution.png"), radial-gradient(ellipse at center, #243B55 0%, #000 100%);
+  background-attachment: fixed;
   color: #ebebeb;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -27,6 +28,12 @@ html {
       align-self: flex-start;
       justify-self: flex-start;
       margin: 1rem;
+
+      > [id$="-chart"] {
+        content: "";
+        clear: both;
+        display: table;
+      }
 
       h1 {
         font-weight: normal;
