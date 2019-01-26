@@ -1,0 +1,19 @@
+{
+  "gender": "m",
+  "height": 177,
+  "weight": 76.5,
+  "bmi": 24.4,
+  "activityLevel": 7,
+  "pressureDiastolic": 80,
+  "pressureSystolic": 124,
+  "bodyFat": 15.9,
+  "qDiabetes": 1.7,
+  "qDiabetesReport": "We calculated your risk of diabetes using the QDiabetes tool. This gives you a 1.7% risk of having diabetes within the next 10 years. This risk is lower than a typical person of the same age, sex and ethnicity.\n\nThe Qdiabetes risk score is a tool to predict the absolute risk of developing Type 2 diabetes over the next 10 years.\nThe Qdiabetes algorithm was developed and validated using data from studying 3.7 million patients registered at general practices across the UK and is updated annually. The tool uses risk factors such as; age, sex, smoking status, ethnicity, family history and medical history.\nYour score is then compared to an average population of the same factors and gives an estimation of the 10 year risk of having Type 2 diabetes. If your score is 10% or more then your HbA1C result should be reviewed by your Doctor. At risk levels below 10% there may still be risk factors that can be mollified through lifestyle changes to reduce your overall risk.",
+  "HbA1C": 33,
+  "haemoglobin": 141,
+  "cholesterolTotal": 4.34,
+  "cholesterolLDL": 2.63,
+  "cholesterolHDL": 1.17,
+  "totalHDLRatio": 3.7,
+  "triglycerides": 1.19
+}

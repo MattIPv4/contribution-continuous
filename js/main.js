@@ -1,24 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    String.prototype.replaceAll = function(search, replacement) {
+    String.prototype.replaceAll = function (search, replacement) {
         var target = this;
         return target.replace(new RegExp(search, 'g'), replacement);
     };
 
     window.doModal = function (title, content) {
+        // generate outer modal and setup destruction
         var modal = document.createElement("div");
-        modal.addEventListener("click", function() {
+        modal.addEventListener("click", function () {
             modal.style.opacity = "0";
             modal.style.pointerEvents = "none";
-            setTimeout(function() { modal.parentElement.removeChild(modal); }, 510);
+            setTimeout(function () {
+                modal.parentElement.removeChild(modal);
+            }, 510);
         });
         modal.className = "modal";
 
+        // create article container and title
         var article = document.createElement("article");
         var h1 = document.createElement("h1");
         h1.innerText = title;
         article.appendChild(h1);
 
+        // add content (allow direct element pass-through)
         if (content instanceof HTMLElement) {
             article.appendChild(content);
         } else {
@@ -27,12 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
             article.appendChild(temp);
         }
 
+        // append to body and animate
         modal.appendChild(article);
         document.body.appendChild(modal);
-        setTimeout(function() { modal.style.opacity = "1"; }, 10);
+        setTimeout(function () {
+            modal.style.opacity = "1";
+        }, 10);
     };
 
     function loadJSON(callback) {
+        // load the report json file
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', 'report.json', true);
@@ -86,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.dispatchEvent(event);
     }
 
+    // load data and animate body
     loadJSON(process);
-    setTimeout(function(){ document.body.style.opacity = "1"; }, 100);
+    setTimeout(function () {
+        document.body.style.opacity = "1";
+    }, 100);
 });

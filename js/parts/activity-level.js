@@ -41,7 +41,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: window.reportData.colors.danger,
                         toolTipContent: "Very Low: 0 - 3"
                     },
-                    {y:0}
+                    {y: 0}
                 ]
             },
             {
@@ -120,7 +120,7 @@ document.addEventListener('jsonDataLoaded', function () {
         animationDuration: 1000,
         height: window.reportData.chartHeight,
         width: 160,
-        dataPointWidth: 80,axisY: {
+        dataPointWidth: 80, axisY: {
             interval: 1,
             minimum: 0,
             maximum: 12,
@@ -139,7 +139,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedColumn",
                 fillOpacity: 0.9,
                 dataPoints: [
-                    {y:0},
+                    {y: 0},
                     {
                         y: user - 0.09, // max / 100 * 1.5 / 2
                         color: "transparent",

@@ -40,7 +40,7 @@ document.addEventListener('jsonDataLoaded', function () {
                         color: window.reportData.colors.info,
                         toolTipContent: "Underweight: &lt; 18.5 kg/m<sup>2</sup>"
                     },
-                    {y:0}
+                    {y: 0}
                 ]
             },
             {
@@ -137,7 +137,7 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedColumn",
                 fillOpacity: 0.9,
                 dataPoints: [
-                    {y:0},
+                    {y: 0},
                     {
                         y: user - 0.375, // max / 100 * 1.5 / 2
                         color: "transparent",

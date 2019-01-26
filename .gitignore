@@ -2,8 +2,6 @@
 ### CUSTOM
 .sass-cache/
 
-report.json
-
 js/canvasjs*/jquery.canvasjs.min.js
 js/canvasjs*/instruction.txt
 js/canvasjs*/canvasjs.react.js

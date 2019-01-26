@@ -78,7 +78,7 @@ document.addEventListener('jsonDataLoaded', function () {
     var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
     title.style.cursor = "pointer";
     title.style.textDecoration = "underline dotted";
-    title.addEventListener("click", function() {
+    title.addEventListener("click", function () {
         window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport);
     });
 
