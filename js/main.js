@@ -38,8 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
             pressureSystolic: parseFloat(data.pressureSystolic) || 0,
             bodyFat: parseFloat(data.bodyFat) || 0,
             qDiabetes: parseFloat(data.qDiabetes) || 0,
+            HbA1C: parseFloat(data.HbA1C) || 0,
             haemoglobin: parseFloat(data.haemoglobin) || 0,
+            cholesterolTotal: parseFloat(data.cholesterolTotal) || 0,
+            cholesterolLDL: parseFloat(data.cholesterolLDL) || 0,
+            cholesterolHDL: parseFloat(data.cholesterolHDL) || 0,
             totalHDLRatio: parseFloat(data.totalHDLRatio) || 0,
+            triglycerides: parseFloat(data.triglycerides) || 0,
         };
 
         // trigger elements

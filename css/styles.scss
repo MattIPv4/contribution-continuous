@@ -22,33 +22,41 @@ html {
     flex-direction: row;
     flex-wrap: wrap;
     flex-grow: 1;
+  }
 
-    section {
-      flex-grow: 1;
-      align-self: flex-start;
-      justify-self: flex-start;
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  section {
+    flex-grow: 1;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > [id$="-chart"] {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    h1 {
+      font-weight: normal;
+      text-transform: uppercase;
       margin: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    }
 
-      > [id$="-chart"] {
-        content: "";
-        clear: both;
-        display: table;
-      }
-
-      h1 {
-        font-weight: normal;
-        text-transform: uppercase;
-        margin: 1rem;
-      }
-
-      h2 {
-        text-align: center;
-      }
+    h2 {
+      text-align: center;
     }
   }
+
+}
 
 .brand {
   width: 4em;
