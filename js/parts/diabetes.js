@@ -1,6 +1,6 @@
 document.addEventListener('jsonDataLoaded', function () {
     // user value
-    var user = Math.max(Math.min(window.reportData.qDiabetes, 60), 0);
+    var user = Math.max(Math.min(window.reportData.qDiabetes, 50), 0);
 
     // generate chart
     var id = "diabetes-chart";
@@ -11,12 +11,12 @@ document.addEventListener('jsonDataLoaded', function () {
         creditHref: "",
         animationEnabled: true,
         animationDuration: 1000,
-        height: 100,
+        height: 110,
         dataPointWidth: 50,
         axisY: {
-            interval: 6,
+            interval: 5,
             minimum: 0,
-            maximum: 60,
+            maximum: 50,
             gridThickness: 1.5,
             gridColor: "#434A54",
             tickThickness: 1.5,
@@ -37,10 +37,15 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 10,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Normal: < 10%"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 12,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Normal: < 10%"
                     },
                     {
-                        y: user - 0.3, // max / 100 / 2
+                        y: user - 0.25, // max / 100 / 2
                         color: "transparent",
                         highlightEnabled: false,
                         toolTipContent: null
@@ -51,12 +56,17 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedBar",
                 dataPoints: [
                     {
-                        y: 60 - 10, // max - last
+                        y: 50 - 10, // max - last
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Raised: > 10%"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 12,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Raised: > 10%"
                     },
                     {
-                        y: 0.6, // max / 100
+                        y: 0.5, // max / 100
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
