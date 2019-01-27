@@ -35,7 +35,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 18,
                         color: window.reportData.colors.info,
-                        toolTipContent: "Low: < 18 mmol/mol"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Low: < 18 mmol/mol"
                     }
                 ]
             },
@@ -45,7 +50,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 53 - 18,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Ideal: 18 - 53 mmol/mol"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Ideal: 18 - 53 mmol/mol"
                     }
                 ]
             },
@@ -55,7 +65,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 75 - 53,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "High: 53 - 75 mmol/mol"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "High: 53 - 75 mmol/mol"
                     },
                     {
                         y: user - 0.6, // max / 100 / 2
@@ -71,7 +86,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 120 - 75, // max - last
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Very High: > 75 mmol/mol"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Very High: > 75 mmol/mol"
                     },
                     {
                         y: 1.2, // max / 100
