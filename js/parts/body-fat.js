@@ -93,14 +93,14 @@ document.addEventListener('jsonDataLoaded', function () {
 
     // add user info
     var h2 = document.createElement("h2");
-    h2.innerText = window.reportData.bodyFat.toString() + "%";
-    h2.style.fontSize = "3em";
+    h2.innerText = window.reportData.bodyFat.toString();
+    h2.style.fontSize = (window.reportData.chartHeight / 6).toString() + "px";
     h2.style.opacity = "0";
     h2.style.transition = "opacity 500ms";
     var br = document.createElement("br");
     h2.appendChild(br);
     var small = document.createElement("small");
-    small.innerText = "Body Fat";
+    small.innerText = "% Body Fat";
     small.style.fontSize = "0.3em";
     small.style.textTransform = "uppercase";
     h2.appendChild(small);

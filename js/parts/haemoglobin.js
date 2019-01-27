@@ -84,7 +84,7 @@ document.addEventListener('jsonDataLoaded', function () {
     // add user info
     var h2 = document.createElement("h2");
     h2.innerText = window.reportData.haemoglobin.toString();
-    h2.style.fontSize = "2.2em";
+    h2.style.fontSize = (window.reportData.chartHeight / 8).toString() + "px";
     h2.style.opacity = "0";
     h2.style.transition = "opacity 500ms";
     var br = document.createElement("br");
