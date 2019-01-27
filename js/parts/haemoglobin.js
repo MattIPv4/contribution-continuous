@@ -42,27 +42,31 @@ document.addEventListener('jsonDataLoaded', function () {
                     dataPoints: [
                         {
                             y: data.severe / max,
-                            indexLabel: "Severe Anemia",
+                            indexLabel: "Severe Anemia (0-" + data.severe.toString() + ")",
                             color: window.reportData.colors.danger,
-                            toolTipContent: "0-" + data.severe.toString() + " g/L"
+                            toolTipContent: null,
+                            highlightEnabled: false
                         },
                         {
                             y: (data.moderate - data.severe) / max,
-                            indexLabel: "Moderate Anemia",
+                            indexLabel: "Moderate Anemia (" + data.severe.toString() + "-" + data.moderate.toString() + ")",
                             color: window.reportData.colors.warning,
-                            toolTipContent: data.severe.toString() + "-" + data.moderate.toString() + " g/L"
+                            toolTipContent: null,
+                            highlightEnabled: false
                         },
                         {
                             y: (data.mild - data.moderate) / max,
-                            indexLabel: "Mild Anemia",
+                            indexLabel: "Mild Anemia (" + data.moderate.toString() + "-" + data.mild.toString() + ")",
                             color: window.reportData.colors.info,
-                            toolTipContent: data.moderate.toString() + "-" + data.mild.toString() + " g/L"
+                            toolTipContent: null,
+                            highlightEnabled: false
                         },
                         {
                             y: (data.normal - data.mild) / max,
-                            indexLabel: "Normal Level",
+                            indexLabel: "Normal Level (" + data.mild.toString() + "-" + data.normal.toString() + ")",
                             color: window.reportData.colors.success,
-                            toolTipContent: data.mild.toString() + "-" + data.normal.toString() + " g/L"
+                            toolTipContent: null,
+                            highlightEnabled: false
                         },
                         {
                             y: 0.25, // padding
