@@ -27,7 +27,7 @@ document.addEventListener('jsonDataLoaded', function () {
         creditHref: "",
         animationEnabled: true,
         animationDuration: 1000,
-        height: 100,
+        height: 110,
         dataPointWidth: 50,
         axisY: {
             interval: 0.5,
@@ -53,7 +53,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: data.optimal,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Optimal: < " + data.optimal.toString()
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 12,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Optimal: < " + data.optimal.toString()
                     }
                 ]
             },
@@ -63,7 +68,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: data.moderate - data.optimal,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "Moderate: " + data.optimal.toString() + " - " + data.moderate.toString()
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 12,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Moderate"//: " + data.optimal.toString() + " - " + data.moderate.toString()
                     },
                     {
                         y: user - 0.05,
@@ -79,7 +89,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: data.high - data.moderate,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "High: > " + data.moderate.toString()
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 12,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "High: > " + data.moderate.toString()
                     },
                     {
                         y: 0.1,
