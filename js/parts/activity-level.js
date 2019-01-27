@@ -194,4 +194,14 @@ document.addEventListener('jsonDataLoaded', function () {
     });
     document.getElementById(id).appendChild(clickCapture);
 
+    // do report modal
+    if (window.reportData.activityLevelReport) {
+        var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
+        title.style.cursor = "pointer";
+        title.style.textDecoration = "underline dotted";
+        title.addEventListener("click", function () {
+            window.doModal("Activity Level", window.reportData.activityLevelReport, document.getElementById(id).parentElement);
+        });
+    }
+
 });

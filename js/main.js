@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             weight: parseFloat(data.weight || 0),
             bmi: parseFloat(data.bmi || 0),
             activityLevel: parseFloat(data.activityLevel || 0),
+            activityLevelReport: (data.activityLevelReport || "").toString(),
             pressureDiastolic: parseFloat(data.pressureDiastolic || 0),
             pressureSystolic: parseFloat(data.pressureSystolic || 0),
             bodyFat: parseFloat(data.bodyFat || 0),

@@ -4,6 +4,7 @@
   "weight": 56.4,
   "bmi": 21.5,
   "activityLevel": 9,
+  "activityLevelReport": "Your activity level is ideal. This will help ensure your future good health.\n\nThe Activity measure indicates your activity level and assesses whether you are meeting the requirements for the optimum amount of exercise. The 11-point activity scale used shows how healthy your activity levels are. A score from 6 to 10 is considered healthy, with 10 the optimum.",
   "pressureDiastolic": 60,
   "pressureSystolic": 128,
   "bodyFat": 27.2,
