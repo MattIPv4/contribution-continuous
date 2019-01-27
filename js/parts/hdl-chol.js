@@ -35,7 +35,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 0.5,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Very Low: < 0.5 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Very Low: < 0.5 mmol/L"
                     }
                 ]
             },
@@ -45,7 +50,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 1 - 0.5,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "Low: 0.5 - 1 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Low: 0.5 - 1 mmol/L"
                     },
                     {
                         y: user - 0.02, // max / 100 / 2
@@ -61,7 +71,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 4 - 1, // max - last
                         color: window.reportData.colors.success,
-                        toolTipContent: "Ideal: > 1 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Ideal: > 1 mmol/L"
                     },
                     {
                         y: 0.04, // max / 100
