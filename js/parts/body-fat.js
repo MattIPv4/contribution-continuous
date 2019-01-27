@@ -180,28 +180,25 @@ document.addEventListener('jsonDataLoaded', function () {
                 {
                     type: "doughnut",
                     startAngle: -90,
-                    radius: chart.data[0].innerRadius - 2,
+                    radius: chart.data[0].innerRadius,
                     dataPoints: [
                         {
                             y: user - (userChunkSize / 2),
                             color: "rgba(255, 255, 255, 0.1)",
                             toolTipContent: null,
-                            highlightEnabled: false,
-                            exploded: true
+                            highlightEnabled: false
                         },
                         {
                             y: userChunkSize,
                             color: "#fff",
                             toolTipContent: null,
-                            highlightEnabled: false,
-                            exploded: true
+                            highlightEnabled: false
                         },
                         {
                             y: Math.max(data.excess - user - userChunkSize, 0),
                             color: "rgba(255, 255, 255, 0.1)",
                             toolTipContent: null,
-                            highlightEnabled: false,
-                            exploded: true
+                            highlightEnabled: false
                         },
                         {
                             y: ringMax - (Math.max(data.excess - user - userChunkSize, 0) + userChunkSize + (user - (userChunkSize / 2))),
