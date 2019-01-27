@@ -73,13 +73,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 section.style.position = "absolute";
                 section.style.height = section.offsetHeight.toString() + "px";
                 section.style.top = "0";
-                section.style.width = section.offsetWidth.toString() + "px";
-                section.style.left = "calc((100% - " + section.offsetWidth.toString() + "px) / 2)";
+                section.style.width = (section.offsetWidth * 1.1).toString() + "px";
+                section.style.left = "calc((100% - " + (section.offsetWidth * 1.1).toString() + "px) / 2)";
                 section.style.zIndex = "999";
                 section.style.pointerEvents = "none";
                 setTimeout(function () {
                     section.style.transition = "opacity 1000ms";
                     section.style.opacity = "1";
+                    // animate section data if hasn't
+                    setTimeout(function () {
+                        var elms = section.getElementsByClassName("click-capture");
+                        if (elms.length) {
+                            var event = new Event('click');
+                            elms[0].dispatchEvent(event);
+                        }
+                    }, 510);
                 }, 10);
             }, 510);
         }, 10);
