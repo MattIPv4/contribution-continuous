@@ -82,14 +82,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () {
                     section.style.transition = "opacity 1000ms";
                     section.style.opacity = "1";
+
                     // animate section data if hasn't
-                    setTimeout(function () {
+                    function doAnimate() {
                         var elms = section.getElementsByClassName("click-capture");
                         if (elms.length) {
                             var event = new Event("click");
-                            elms[0].dispatchEvent(event);
+                            elms[0].dispatchEvent(event); // trigger fake click to show
                         }
-                    }, 510);
+                        setTimeout(function () {
+                            if (section.getElementsByClassName("click-capture").length) {
+                                doAnimate(); // click seems to be buggy, loop if things didn't click
+                            }
+                        }, 10);
+                    }
+
+                    setTimeout(doAnimate, 510);
                 }, 10);
             }, 510);
         }, 10);
@@ -153,17 +161,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // brand button shows all user data on click
+    function showAll() {
+        var event = new Event("click");
+        var captures = document.getElementsByClassName("click-capture");
+        for (var i = 0; i < captures.length; i++) {
+            captures[i].dispatchEvent(event); // trigger fake click to show
+        }
+        setTimeout(function () {
+            var captures = document.getElementsByClassName("click-capture");
+            if (captures.length) {
+                showAll(); // click seems to be buggy, loop if things didn't click
+            } else {
+                var brand = document.getElementsByClassName("brand");
+                if (brand.length) {
+                    brand = brand[0];
+                    brand.style.cursor = ""; // remove pointer if done
+                }
+            }
+        }, 10);
+    }
+
     var brand = document.getElementsByClassName("brand");
     if (brand.length) {
         brand = brand[0];
         brand.style.cursor = "pointer";
-        brand.addEventListener("click", function () {
-            var event = new Event("click");
-            var captures = document.getElementsByClassName("click-capture");
-            for (var i = 0; i < captures.length; i++) {
-                captures[i].dispatchEvent(event); // trigger fake click to show
-            }
-        })
+        brand.addEventListener("click", showAll);
     }
 
     // get file to use or default
