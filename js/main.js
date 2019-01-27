@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // ability to replaceall on string
     String.prototype.replaceAll = function (search, replacement) {
         var target = this;
         return target.replace(new RegExp(search, 'g'), replacement);
     };
 
+    // trigger modal for advanced report on section
     window.doModal = function (title, content, section) {
         // generate outer modal and setup destruction
         var modal = document.createElement("div");
@@ -84,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(function () {
                         var elms = section.getElementsByClassName("click-capture");
                         if (elms.length) {
-                            var event = new Event('click');
+                            var event = new Event("click");
                             elms[0].dispatchEvent(event);
                         }
                     }, 510);
@@ -93,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10);
     };
 
+    // load the report json file
     function loadJSON(name, callback) {
-        // load the report json file
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open("GET", "reports/" + name.toString(), true);
@@ -106,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xobj.send(null);
     }
 
+    // process the json report and generate data for sections
     function process(data) {
         // parse data
         data = JSON.parse(data);
@@ -145,8 +148,22 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // trigger elements
-        var event = new Event('jsonDataLoaded');
+        var event = new Event("jsonDataLoaded");
         document.dispatchEvent(event);
+    }
+
+    // brand button shows all user data on click
+    var brand = document.getElementsByClassName("brand");
+    if (brand.length) {
+        brand = brand[0];
+        brand.style.cursor = "pointer";
+        brand.addEventListener("click", function () {
+            var event = new Event("click");
+            var captures = document.getElementsByClassName("click-capture");
+            for (var i = 0; i < captures.length; i++) {
+                captures[i].dispatchEvent(event); // trigger fake click to show
+            }
+        })
     }
 
     // get file to use or default
