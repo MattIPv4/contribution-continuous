@@ -1,0 +1,18 @@
+{
+  "gender": "f",
+  "height": 162,
+  "weight": 56.4,
+  "bmi": 21.5,
+  "activityLevel": 9,
+  "pressureDiastolic": 60,
+  "pressureSystolic": 128,
+  "bodyFat": 27.2,
+  "qDiabetes": 1.8,
+  "HbA1C": 33,
+  "haemoglobin": 141,
+  "cholesterolTotal": 4.1,
+  "cholesterolLDL": 2.27,
+  "cholesterolHDL": 1.6,
+  "totalHDLRatio": 2.56,
+  "triglycerides": 1.02
+}

@@ -85,11 +85,13 @@ document.addEventListener('jsonDataLoaded', function () {
     document.getElementById(id).style.width = chart.width.toString() + "px";
 
     // do modal
-    var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
-    title.style.cursor = "pointer";
-    title.style.textDecoration = "underline dotted";
-    title.addEventListener("click", function () {
-        window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport, document.getElementById(id).parentElement);
-    });
+    if (window.reportData.qDiabetesReport) {
+        var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
+        title.style.cursor = "pointer";
+        title.style.textDecoration = "underline dotted";
+        title.addEventListener("click", function () {
+            window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport, document.getElementById(id).parentElement);
+        });
+    }
 
 });

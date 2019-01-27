@@ -85,11 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10);
     };
 
-    function loadJSON(callback) {
+    function loadJSON(name, callback) {
         // load the report json file
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-        xobj.open('GET', 'report.json', true);
+        xobj.open("GET", "reports/" + name.toString(), true);
         xobj.onreadystatechange = function () {
             if (xobj.readyState === 4 && xobj.status === 200) {
                 callback(xobj.responseText);
@@ -117,22 +117,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
 
             gender: data.gender.toString().toLowerCase() || "m",
-            height: parseFloat(data.height) || 0,
-            weight: parseFloat(data.weight) || 0,
-            bmi: parseFloat(data.bmi) || 0,
-            activityLevel: parseFloat(data.activityLevel) || 0,
-            pressureDiastolic: parseFloat(data.pressureDiastolic) || 0,
-            pressureSystolic: parseFloat(data.pressureSystolic) || 0,
-            bodyFat: parseFloat(data.bodyFat) || 0,
-            qDiabetes: parseFloat(data.qDiabetes) || 0,
-            qDiabetesReport: data.qDiabetesReport.toString(),
-            HbA1C: parseFloat(data.HbA1C) || 0,
-            haemoglobin: parseFloat(data.haemoglobin) || 0,
-            cholesterolTotal: parseFloat(data.cholesterolTotal) || 0,
-            cholesterolLDL: parseFloat(data.cholesterolLDL) || 0,
-            cholesterolHDL: parseFloat(data.cholesterolHDL) || 0,
-            totalHDLRatio: parseFloat(data.totalHDLRatio) || 0,
-            triglycerides: parseFloat(data.triglycerides) || 0,
+            height: parseFloat(data.height || 0),
+            weight: parseFloat(data.weight || 0),
+            bmi: parseFloat(data.bmi || 0),
+            activityLevel: parseFloat(data.activityLevel || 0),
+            pressureDiastolic: parseFloat(data.pressureDiastolic || 0),
+            pressureSystolic: parseFloat(data.pressureSystolic || 0),
+            bodyFat: parseFloat(data.bodyFat || 0),
+            qDiabetes: parseFloat(data.qDiabetes || 0),
+            qDiabetesReport: (data.qDiabetesReport || "").toString(),
+            HbA1C: parseFloat(data.HbA1C || 0),
+            haemoglobin: parseFloat(data.haemoglobin || 0),
+            cholesterolTotal: parseFloat(data.cholesterolTotal || 0),
+            cholesterolLDL: parseFloat(data.cholesterolLDL || 0),
+            cholesterolHDL: parseFloat(data.cholesterolHDL || 0),
+            totalHDLRatio: parseFloat(data.totalHDLRatio || 0),
+            triglycerides: parseFloat(data.triglycerides || 0),
         };
 
         // trigger elements
@@ -140,8 +140,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.dispatchEvent(event);
     }
 
+    // get file to use or default
+    var url = new URL(location.href);
+    var file = url.searchParams.get("report") || "male1.json";
+
     // load data and animate body
-    loadJSON(process);
+    loadJSON(file, process);
     setTimeout(function () {
         document.body.style.opacity = "1";
     }, 100);
