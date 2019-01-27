@@ -71,9 +71,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
   transition: opacity 500ms;
 
@@ -85,17 +82,28 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.9;
+    opacity: 1;
     background: $background;
     background-attachment: fixed;
     z-index: -1;
   }
 
-  article {
-    border-radius: 2px;
-    padding: .5rem 1.5rem;
-    margin: 1.5rem 3rem;
-    background: rgba(0, 0, 0, 0.9);
+  .inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    article {
+      border-radius: 2px;
+      padding: .5rem 1.5rem;
+      margin: 1.5rem 3rem 4rem;
+      background: rgba(0, 0, 0, 0.9);
+    }
   }
 }
 

@@ -79,7 +79,7 @@ document.addEventListener('jsonDataLoaded', function () {
     title.style.cursor = "pointer";
     title.style.textDecoration = "underline dotted";
     title.addEventListener("click", function () {
-        window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport);
+        window.doModal("Qdiabetes Risk Score", window.reportData.qDiabetesReport, document.getElementById(id).parentElement);
     });
 
 });

@@ -5,19 +5,43 @@ document.addEventListener('DOMContentLoaded', function () {
         return target.replace(new RegExp(search, 'g'), replacement);
     };
 
-    window.doModal = function (title, content) {
+    window.doModal = function (title, content, section) {
         // generate outer modal and setup destruction
         var modal = document.createElement("div");
         modal.addEventListener("click", function () {
-            modal.style.opacity = "0";
-            modal.style.pointerEvents = "none";
+            // hide section
+            section.style.transition = "opacity 500ms";
             setTimeout(function () {
-                modal.parentElement.removeChild(modal);
-            }, 510);
+                section.style.opacity = "0";
+                setTimeout(function () {
+                    section.style.position = "";
+                    section.style.top = "";
+                    section.style.left = "";
+                    section.style.width = "";
+                    section.style.height = "";
+                    section.style.zIndex = "";
+                    section.style.pointerEvents = "";
+                    setTimeout(function () {
+                        section.style.transition = "";
+                        section.style.opacity = "1";
+
+                        // hide modal
+                        modal.style.opacity = "0";
+                        modal.style.pointerEvents = "none";
+                        setTimeout(function () {
+                            modal.parentElement.removeChild(modal);
+                        }, 510);
+                    }, 10);
+                }, 510);
+            }, 10);
         });
         modal.className = "modal";
 
-        // create article container and title
+        // article container
+        var div = document.createElement("div");
+        div.className = "inner";
+
+        // create article and title
         var article = document.createElement("article");
         var h1 = document.createElement("h1");
         h1.innerText = title;
@@ -32,11 +56,32 @@ document.addEventListener('DOMContentLoaded', function () {
             article.appendChild(temp);
         }
 
-        // append to body and animate
-        modal.appendChild(article);
+        // append to body
+        div.appendChild(article);
+        div.style.top = section.offsetHeight.toString() + "px";
+        modal.appendChild(div);
         document.body.appendChild(modal);
+
+        // show modal
         setTimeout(function () {
             modal.style.opacity = "1";
+
+            // show section
+            setTimeout(function () {
+                section.style.transition = "opacity 0ms";
+                section.style.opacity = "0";
+                section.style.position = "absolute";
+                section.style.height = section.offsetHeight.toString() + "px";
+                section.style.top = "0";
+                section.style.width = section.offsetWidth.toString() + "px";
+                section.style.left = "calc((100% - " + section.offsetWidth.toString() + "px) / 2)";
+                section.style.zIndex = "999";
+                section.style.pointerEvents = "none";
+                setTimeout(function () {
+                    section.style.transition = "opacity 1000ms";
+                    section.style.opacity = "1";
+                }, 10);
+            }, 510);
         }, 10);
     };
 
@@ -66,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chartHeight: (h / 2) - (h * 0.15),
             colors: {
                 danger: "#ff7381",
-                warning: "#fac1b6",
+                warning: "#f19384",
                 success: "#33ffd6",
                 info: "#d6f5ff"
             },
