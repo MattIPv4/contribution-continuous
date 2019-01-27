@@ -2,7 +2,18 @@ document.addEventListener('jsonDataLoaded', function () {
     // user data
     var dia = Math.max(Math.min(window.reportData.pressureDiastolic, 100), 40);
     var sys = Math.max(Math.min(window.reportData.pressureSystolic, 190), 70);
-    var label = window.reportData.pressureSystolic.toString() + "/" + window.reportData.pressureDiastolic.toString() + " mmHg";
+
+    // id
+    var id = "blood-pressure-chart";
+
+    // add user data to dom
+    var h2 = document.createElement("h2");
+    h2.innerText = window.reportData.pressureSystolic.toString() + "/" + window.reportData.pressureDiastolic.toString() + " mmHg";
+    h2.style.margin = "0";
+    h2.style.fontSize = (window.reportData.chartHeight / 16).toString() + "px";
+    h2.style.opacity = "0";
+    h2.style.transition = "opacity 750ms";
+    document.getElementById(id).parentElement.insertBefore(h2, document.getElementById(id));
 
     // save custom points (so can animate marker size)
     var point = [{
@@ -19,14 +30,13 @@ document.addEventListener('jsonDataLoaded', function () {
     }]; // x: dia, y: sys
 
     // generate chart
-    var id = "blood-pressure-chart";
     var chart = new CanvasJS.Chart(id,
         {
             theme: "dark2",
             backgroundColor: "transparent",
             creditText: "",
             creditHref: "",
-            height: window.reportData.chartHeight,
+            height: window.reportData.chartHeight - (window.reportData.chartHeight / 16),
             axisX: {
                 minimum: 40,
                 maximum: 100,
@@ -118,14 +128,16 @@ document.addEventListener('jsonDataLoaded', function () {
                     // user data point larger
                     type: "scatter",
                     markerType: "circle",
-                    toolTipContent: label,
+                    highlightEnabled: false,
+                    toolTipContent: null,
                     dataPoints: pointLarge
                 },
                 {
                     // user data point
                     type: "scatter",
                     markerType: "cross",
-                    toolTipContent: label,
+                    highlightEnabled: false,
+                    toolTipContent: null,
                     dataPoints: point
                 }
             ]
@@ -163,12 +175,13 @@ document.addEventListener('jsonDataLoaded', function () {
     clickCapture.addEventListener("click", function () {
         if (doneShow) return;
         doneShow = true;
-        point[0].markerSize = 80;
+        h2.style.opacity = "1";
+        point[0].markerSize = 60;
         point[0].markerColor = "#1f1f2d";
-        animate_point(point[0], 12, 750);
+        animate_point(point[0], 12, 500);
         pointLarge[0].markerSize = 100;
         pointLarge[0].markerColor = "rgba(255, 255, 255, 0.3)";
-        animate_point(pointLarge[0], 40, 750);
+        animate_point(pointLarge[0], 40, 500);
         clickCapture.parentElement.removeChild(clickCapture);
     });
     document.getElementById(id).appendChild(clickCapture);
