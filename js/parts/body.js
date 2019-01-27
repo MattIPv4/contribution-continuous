@@ -68,6 +68,8 @@ document.addEventListener('jsonDataLoaded', function () {
     // save to dom
     div.appendChild(data_div);
     document.getElementById("body").appendChild(div);
+    // shift for spacing
+    document.getElementById("body").parentElement.style.marginLeft = "5rem";
 
     // click to show data
     var doneShow = false;
