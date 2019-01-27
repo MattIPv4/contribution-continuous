@@ -74,6 +74,7 @@ document.addEventListener('jsonDataLoaded', function () {
     // click to show data
     var doneShow = false;
     var clickCapture = document.createElement("div");
+    clickCapture.className = "click-capture";
     clickCapture.style.position = "absolute";
     clickCapture.style.top = "0";
     clickCapture.style.left = "0";

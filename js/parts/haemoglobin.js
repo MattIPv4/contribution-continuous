@@ -146,6 +146,7 @@ document.addEventListener('jsonDataLoaded', function () {
     // click to show data
     var doneShow = false;
     var clickCapture = document.createElement("div");
+    clickCapture.className = "click-capture";
     clickCapture.style.position = "absolute";
     clickCapture.style.height = chart.height.toString() + "px";
     clickCapture.style.width = chart.width.toString() + "px";

@@ -168,6 +168,7 @@ document.addEventListener('jsonDataLoaded', function () {
     // click to show data
     var doneShow = false;
     var clickCapture = document.createElement("div");
+    clickCapture.className = "click-capture";
     clickCapture.style.position = "absolute";
     clickCapture.style.height = chart.height.toString() + "px";
     clickCapture.style.width = chart.width.toString() + "px";
@@ -178,7 +179,7 @@ document.addEventListener('jsonDataLoaded', function () {
         h2.style.opacity = "1";
         point[0].markerSize = 60;
         point[0].markerColor = "#1f1f2d";
-        animate_point(point[0], 12, 500);
+        animate_point(point[0], 10, 500);
         pointLarge[0].markerSize = 100;
         pointLarge[0].markerColor = "rgba(255, 255, 255, 0.3)";
         animate_point(pointLarge[0], 40, 500);

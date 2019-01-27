@@ -84,7 +84,7 @@ document.addEventListener('jsonDataLoaded', function () {
     document.getElementById(id).style.height = chart.height.toString() + "px";
     document.getElementById(id).style.width = chart.width.toString() + "px";
 
-    // do modal
+    // do report modal
     if (window.reportData.qDiabetesReport) {
         var title = document.getElementById(id).parentElement.getElementsByTagName("h1")[0];
         title.style.cursor = "pointer";
