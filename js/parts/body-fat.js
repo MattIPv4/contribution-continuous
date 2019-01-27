@@ -1,6 +1,9 @@
 document.addEventListener('jsonDataLoaded', function () {
+    // max value for rings (%)
+    var ringMax = 75;
+
     // user value
-    var user = Math.max(Math.min(window.reportData.bodyFat, 100), 0);
+    var user = Math.max(Math.min(window.reportData.bodyFat, ringMax), 0);
     var gender = window.reportData.gender;
 
     // save default values
@@ -41,41 +44,46 @@ document.addEventListener('jsonDataLoaded', function () {
                     dataPoints: [
                         {
                             y: data.low,
-                            indexLabel: "Low",
+                            indexLabel: "Low (0-" + data.low.toString() + "%)",
                             color: window.reportData.colors.warning,
-                            toolTipContent: "0-" + data.low.toString() + "%",
+                            toolTipContent: null,
+                            highlightEnabled: false,
                             exploded: true
                         },
                         {
                             y: (data.ultra_lean - data.low),
-                            indexLabel: "Ultra Lean",
+                            indexLabel: "Ultra Lean (" + data.low.toString() + "-" + data.ultra_lean.toString() + "%)",
                             color: window.reportData.colors.success,
-                            toolTipContent: data.low.toString() + "-" + data.ultra_lean.toString() + "%",
+                            toolTipContent: null,
+                            highlightEnabled: false,
                             exploded: true
                         },
                         {
                             y: (data.lean - data.ultra_lean),
-                            indexLabel: "Lean",
+                            indexLabel: "Lean (" + data.ultra_lean.toString() + "-" + data.lean.toString() + "%)",
                             color: window.reportData.colors.success,
-                            toolTipContent: data.ultra_lean.toString() + "-" + data.lean.toString() + "%",
+                            toolTipContent: null,
+                            highlightEnabled: false,
                             exploded: true
                         },
                         {
                             y: (data.moderate_lean - data.lean),
-                            indexLabel: "Moderately Lean",
+                            indexLabel: "Moderately Lean (" + data.lean.toString() + "-" + data.moderate_lean.toString() + "%)",
                             color: window.reportData.colors.success,
-                            toolTipContent: data.lean.toString() + "-" + data.moderate_lean.toString() + "%",
+                            toolTipContent: null,
+                            highlightEnabled: false,
                             exploded: true
                         },
                         {
                             y: (data.excess - data.moderate_lean),
-                            indexLabel: "Excess",
+                            indexLabel: "Excess (" + data.moderate_lean.toString() + "-" + data.excess.toString() + "%)",
                             color: window.reportData.colors.danger,
-                            toolTipContent: data.moderate_lean.toString() + "-" + data.excess.toString() + "%",
+                            toolTipContent: null,
+                            highlightEnabled: false,
                             exploded: true
                         },
                         {
-                            y: 100 - data.excess, // padding
+                            y: ringMax - data.excess, // padding
                             color: "transparent",
                             toolTipContent: null,
                             highlightEnabled: false
@@ -111,7 +119,7 @@ document.addEventListener('jsonDataLoaded', function () {
     h2.style.margin = "0";
     h2.style.padding = "0";
     h2.style.top = ((chart.height - h2.offsetHeight) / 2) + "px";
-    h2.style.left = ((chart.width - h2.offsetWidth) / 2) + "px";
+    h2.style.left = ((chart.width - h2.offsetWidth * 1.25) / 2) + "px"; // * 1.25 to bias left slightly
 
     // generate underlay chart
     var div = document.createElement("div");
@@ -140,7 +148,7 @@ document.addEventListener('jsonDataLoaded', function () {
                             highlightEnabled: false
                         },
                         {
-                            y: 100 - data.excess,
+                            y: ringMax - data.excess,
                             color: "rgba(255, 255, 255, 0.2)",
                             toolTipContent: null,
                             highlightEnabled: false
@@ -158,6 +166,7 @@ document.addEventListener('jsonDataLoaded', function () {
     var div = document.createElement("div");
     div.setAttribute("id", id + "-inner2");
     document.getElementById(id).insertBefore(div, document.getElementById(id).children[0]);
+    var userChunkSize = 0.75;
     var chart3 = new CanvasJS.Chart(id + "-inner2",
         {
             theme: "dark2",
@@ -174,28 +183,28 @@ document.addEventListener('jsonDataLoaded', function () {
                     radius: chart.data[0].innerRadius - 2,
                     dataPoints: [
                         {
-                            y: user - 0.5,
+                            y: user - (userChunkSize / 2),
                             color: "rgba(255, 255, 255, 0.1)",
                             toolTipContent: null,
                             highlightEnabled: false,
                             exploded: true
                         },
                         {
-                            y: 1,
+                            y: userChunkSize,
                             color: "#fff",
                             toolTipContent: null,
                             highlightEnabled: false,
                             exploded: true
                         },
                         {
-                            y: Math.max(data.excess - user - 1, 0),
+                            y: Math.max(data.excess - user - userChunkSize, 0),
                             color: "rgba(255, 255, 255, 0.1)",
                             toolTipContent: null,
                             highlightEnabled: false,
                             exploded: true
                         },
                         {
-                            y: 100 - (Math.max(data.excess - user - 1, 0) + 1 + (user - 0.5)),
+                            y: ringMax - (Math.max(data.excess - user - userChunkSize, 0) + userChunkSize + (user - (userChunkSize / 2))),
                             color: "transparent",
                             toolTipContent: null,
                             highlightEnabled: false
