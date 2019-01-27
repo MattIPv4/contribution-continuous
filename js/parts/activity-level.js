@@ -39,7 +39,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 3,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Very Low: 0 - 3"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "Very Low: 0 - 3"
                     },
                     {y: 0}
                 ]
@@ -51,7 +53,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 5 - 3,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Low/Medium: 3 - 5"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "Low/Medium: 3 - 5"
                     }
                 ]
             },
@@ -62,7 +66,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 7 - 5,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "Medium: 5 - 7"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "Medium: 5 - 7"
                     }
                 ]
             },
@@ -73,7 +79,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 9 - 7,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Medium/High: 7 - 9"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "Medium/High: 7 - 9"
                     }
                 ]
             },
@@ -84,7 +92,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 11 - 9,
                         color: window.reportData.colors.success,
-                        toolTipContent: "High: 9 - 11"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "High: 9 - 11"
                     }
                 ]
             },
@@ -94,7 +104,9 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 12 - 11,
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Very High: 11 - 12"
+                        highlightEnabled: false,
+                        toolTipContent: null
+                        //toolTipContent: "Very High: 11 - 12"
                     }
                 ]
             }
