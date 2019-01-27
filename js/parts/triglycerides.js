@@ -16,7 +16,7 @@ document.addEventListener('jsonDataLoaded', function () {
         axisY: {
             interval: 1,
             minimum: 0,
-            maximum: 6,
+            maximum: 5,
             gridThickness: 1.5,
             gridColor: "transparent",
             tickColor: "#434A54"
@@ -35,7 +35,12 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 2,
                         color: window.reportData.colors.success,
-                        toolTipContent: "Ideal: < 2 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        indexLabel: "Ideal: < 2 mmol/L"
                     }
                 ]
             },
@@ -45,10 +50,15 @@ document.addEventListener('jsonDataLoaded', function () {
                     {
                         y: 4 - 2,
                         color: window.reportData.colors.warning,
-                        toolTipContent: "High: 2 - 4 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "High: 2 - 4 mmol/L"
                     },
                     {
-                        y: user - 0.03, // max / 100 / 2
+                        y: user - 0.025, // max / 100 / 2
                         color: "transparent",
                         highlightEnabled: false,
                         toolTipContent: null
@@ -59,12 +69,17 @@ document.addEventListener('jsonDataLoaded', function () {
                 type: "stackedBar",
                 dataPoints: [
                     {
-                        y: 6 - 4, // max - last
+                        y: 5 - 4, // max - last
                         color: window.reportData.colors.danger,
-                        toolTipContent: "Very High: > 4 mmol/L"
+                        highlightEnabled: false,
+                        toolTipContent: null,
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 10,
+                        indexLabelFontColor: "#434A54",
+                        //indexLabel: "Very High: > 4 mmol/L"
                     },
                     {
-                        y: 0.06, // max / 100
+                        y: 0.05, // max / 100
                         color: "#fff",
                         highlightEnabled: false,
                         toolTipContent: null,
