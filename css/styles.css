@@ -87,7 +87,7 @@ body {
   z-index: 999;
   background: #0079c8; }
 
-.demo-controls {
+#demo-controls {
   position: fixed;
   bottom: 0;
   right: 5em;
@@ -99,12 +99,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-  .demo-controls p {
+  #demo-controls p {
     margin: 0 0 0.1em; }
-  .demo-controls a {
+  #demo-controls a {
     color: #fff;
     text-decoration: underline dotted; }
-    .demo-controls a:hover {
+    #demo-controls a:hover {
       color: #aaa; }
 
 .canvasjs-chart-credit {
