@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
         canvas.style.left = "0";
         canvas.style.width = "100%";
         canvas.style.height = "100%";
+        canvas.style.opacity = "1";
+        canvas.style.transition = "opacity 500ms";
         canvas.height = canvas.offsetHeight;
         canvas.width = canvas.offsetWidth;
 
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // set the color
-                var r = 255, g = 0, b = 0, a = 1;
+                var r = 0, g = 121, b = 200, a = 1;
                 var color = "rgba(" + r.toString() + "," + g.toString() + "," + b.toString() + "," + a.toString() + ")";
                 ctx.strokeStyle = color;
                 ctx.fillStyle = color;
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // draw a circle to ensure nice edge
                 ctx.beginPath();
-                ctx.arc(x, y, 2.9/2, 0, Math.PI*2, true);
+                ctx.arc(x, y, 2.9 / 2, 0, Math.PI * 2, true);
                 ctx.closePath();
                 ctx.fill();
 
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // get the position of moues on canvas
+            // get the position of mouse on canvas
             function getMousePos(e) {
                 if (e.offsetX) {
                     mouseX = e.offsetX;
@@ -88,10 +90,95 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // register events
+            // ability to reset
+            function reset() {
+                // wipe canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // reset last positions
+                lastX = -1;
+                lastY = -1;
+            }
+
+            // track interactivity & visibility
+            var interact = false;
+            var visible = true;
+
+            function enableDraw() {
+                canvas.style.pointerEvents = "";
+                canvas.style.cursor = "cell";
+            }
+
+            function disableDraw() {
+                canvas.style.pointerEvents = "none";
+                canvas.style.cursor = "";
+            }
+
+            // ability to toggle interactivity
+            function interactivity() {
+                interact = !interact;
+                if (interact) {
+                    if (visible) {
+                        enableDraw();
+                    }
+                } else {
+                    disableDraw();
+                }
+            }
+
+            // ability to toggle visibility
+            function visibility() {
+                visible = !visible;
+                canvas.style.opacity = (visible ? "1" : "0");
+                setTimeout(function () {
+                    if (visible) {
+                        if (interact) {
+                            enableDraw();
+                        }
+                    } else {
+                        disableDraw();
+                    }
+                }, 500);
+            }
+
+            // register canvas events
             canvas.addEventListener("mousedown", down, false);
             window.addEventListener("mouseup", up, false);
             canvas.addEventListener("mousemove", move, false);
+
+            // register pen control
+            var controlPen = document.getElementById("annotate-pen");
+            if (controlPen) {
+                controlPen.style.cursor = "pointer";
+                if (interact) {
+                    controlPen.className = "active";
+                }
+                controlPen.addEventListener("click", function () {
+                    controlPen.classList.toggle("active");
+                    interactivity();
+                })
+            }
+
+            // register visibility control
+            var controlVisibility = document.getElementById("annotate-visibility");
+            if (controlVisibility) {
+                controlVisibility.style.cursor = "pointer";
+                if (visible) {
+                    controlVisibility.className = "active";
+                }
+                controlVisibility.addEventListener("click", function () {
+                    controlVisibility.classList.toggle("active");
+                    visibility();
+                })
+            }
+
+            // register reset control
+            var controlReset = document.getElementById("annotate-reset");
+            if (controlReset) {
+                controlReset.style.cursor = "pointer";
+                controlReset.addEventListener("click", function () {
+                    reset();
+                });
+            }
         }
     }
 

@@ -2,6 +2,7 @@
 
 $background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%),
 url("hixs-evolution.png"), radial-gradient(ellipse at center, #243B55 0%, #000 100%);
+$bupa: #0079c8;
 
 html, body {
   margin: 0;
@@ -107,23 +108,46 @@ body {
   }
 }
 
+#annotate-controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  background: $bupa;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 2rem;
+
+    &.active, &:focus, &:active {
+      background: darken($bupa, 5%);
+      box-shadow: inset 0 0 9px 3px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
 .brand {
-  width: 4.5em;
+  width: 4.5rem;
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 999;
-  background: #0079c8;
+  background: $bupa;
 }
 
 #demo-controls {
   position: fixed;
   bottom: 0;
-  right: 5em;
-  padding: 0 1em;
-  height: 4em;
+  right: 5rem;
+  padding: 0 1rem;
+  height: 4rem;
   z-index: 999;
-  background: #0079c8;
+  background: $bupa;
   display: flex;
   flex-direction: column;
   align-items: center;

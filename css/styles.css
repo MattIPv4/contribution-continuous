@@ -79,8 +79,26 @@ body {
       margin: 1.5rem 3rem 4rem;
       background: rgba(0, 0, 0, 0.9); }
 
+#annotate-controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  background: #0079c8;
+  display: flex;
+  flex-direction: column; }
+  #annotate-controls a {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 2rem; }
+    #annotate-controls a.active, #annotate-controls a:focus, #annotate-controls a:active {
+      background: #006aaf;
+      box-shadow: inset 0 0 9px 3px rgba(0, 0, 0, 0.4); }
+
 .brand {
-  width: 4.5em;
+  width: 4.5rem;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -90,9 +108,9 @@ body {
 #demo-controls {
   position: fixed;
   bottom: 0;
-  right: 5em;
-  padding: 0 1em;
-  height: 4em;
+  right: 5rem;
+  padding: 0 1rem;
+  height: 4rem;
   z-index: 999;
   background: #0079c8;
   display: flex;
